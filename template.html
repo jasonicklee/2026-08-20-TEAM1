@@ -7,6 +7,11 @@
     <title>Document</title>
   </head>
   <style>
+    @media (max-width: 575px) {
+      .nav-bar {
+        display: none;
+      }
+    }
     .nav-btn a:hover {
       transition: opacity 0.3s ease;
       background-color: rgb(248, 185, 69);
@@ -44,6 +49,12 @@
       gap: 3em;
     }
 
+    @media (max-width: 575px) {
+      .footer-link {
+        grid-template-columns: 2fr 2fr;
+      }
+    }
+
     .footer-nav {
       display: grid;
       gap: 8px;
@@ -65,7 +76,7 @@
             <h1 class="h4 align-center text-white">
               島嶼旅跡<span class="ml-10 text-red">·</span>
             </h1>
-            <div class="d-flex align-center">
+            <div class="d-flex align-center nav-bar">
               <div class="mr-12">
                 <div class="h6 text-white font-family-serif">
                   <ul class="d-flex g-12">
