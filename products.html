@@ -1,159 +1,161 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./css/page/products.css" />
-    <title>products</title>
-  </head>
-  <style>
-    @media (max-width: 768px) {
-      .nav-bar {
-        display: none;
-      }
-    }
-    .nav-btn a:hover {
-      transition: opacity 0.3s ease;
-      background-color: rgb(248, 185, 69);
-    }
 
-    .nav-link {
-      position: relative;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/pages/products.css" />
+  <title>products</title>
+</head>
+<style>
+  @media (max-width: 768px) {
+    .nav-bar {
+      display: none;
     }
+  }
 
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary-orange);
-      transition: width 0.3s ease;
-    }
+  .nav-btn a:hover {
+    transition: opacity 0.3s ease;
+    background-color: rgb(248, 185, 69);
+  }
 
-    .nav-link:hover::after {
-      width: 100%;
-    }
+  .nav-link {
+    position: relative;
+  }
 
-    .footer-section {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      column-gap: 48px;
-      padding: 48px 0;
-    }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-orange);
+    transition: width 0.3s ease;
+  }
 
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .footer-section {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    column-gap: 48px;
+    padding: 48px 0;
+  }
+
+  .footer-link {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3em;
+  }
+
+  @media (max-width: 768px) {
     .footer-link {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3em;
+      grid-template-columns: 2fr 2fr;
     }
+  }
 
-    @media (max-width: 768px) {
-      .footer-link {
-        grid-template-columns: 2fr 2fr;
-      }
-    }
+  .footer-nav {
+    display: grid;
+    gap: 8px;
+  }
 
-    .footer-nav {
-      display: grid;
-      gap: 8px;
-    }
+  .footer-nav a:hover {
+    color: var(--primary-orange);
+  }
 
-    .footer-nav a:hover {
-      color: var(--primary-orange);
-    }
+  .footer.text {
+    border-top: 1px solid var(--primary-grey);
+  }
+</style>
 
-    .footer.text {
-      border-top: 1px solid var(--primary-grey);
-    }
-  </style>
-  <body>
-    <header>
-      <nav class="py-20">
-        <div class="container">
-          <div class="d-flex justify-between align-center">
-            <h1 class="h4 align-center text-white">
-              <a href="#">島嶼旅跡<span class="ml-10 text-red">·</span></a>
-            </h1>
-            <div class="d-flex align-center nav-bar">
-              <div class="mr-12">
-                <div class="h6 text-white font-family-serif">
-                  <ul class="d-flex g-12">
-                    <li><a href="#" class="nav-link">探索體驗</a></li>
-                    <li><a href="#" class="nav-link">關於我們</a></li>
-                    <li><a href="#" class="nav-link">常見問題</a></li>
-                    <li><a href="#" class="nav-link">我的訂單</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="font-family-serif nav-btn">
-                <a href="#" class="btn btn-orange">登入/註冊</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <main></main>
-    <footer>
+<body>
+  <header>
+    <nav class="py-20">
       <div class="container">
-        <div class="footer-section">
-          <div>
-            <h4 class="h4 mb-10 text-white">
-              島嶼旅跡<span class="text-red">·</span>
-            </h4>
-            <div class="h6 text-grey">
-              <p>深入台灣每一條小徑，</p>
-              <p>遇見最在地的感動體驗。</p>
-              <p>我們相信，旅行不只是到達目的地，</p>
-              <p>而是與這片土地真實相遇。</p>
+        <div class="d-flex justify-between align-center">
+          <h1 class="h4 align-center text-white">
+            <a href="#">島嶼旅跡<span class="ml-10 text-red">·</span></a>
+          </h1>
+          <div class="d-flex align-center nav-bar">
+            <div class="mr-12">
+              <div class="h6 text-white font-family-serif">
+                <ul class="d-flex g-12">
+                  <li><a href="#" class="nav-link">探索體驗</a></li>
+                  <li><a href="#" class="nav-link">關於我們</a></li>
+                  <li><a href="#" class="nav-link">常見問題</a></li>
+                  <li><a href="#" class="nav-link">我的訂單</a></li>
+                </ul>
+              </div>
             </div>
-          </div>
-
-          <div class="footer-link font-family-serif">
-            <div class="text-white">
-              <h6 class="h6 mb-16">探索</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">所有體驗</a></li>
-                <li><a href="">戶外冒險</a></li>
-                <li><a href="">手作工藝</a></li>
-                <li><a href="">美食料理</a></li>
-                <li><a href="">文化歷史</a></li>
-              </ul>
+            <div class="font-family-serif nav-btn">
+              <a href="#" class="btn btn-orange">登入/註冊</a>
             </div>
-            <div class="text-white">
-              <h6 class="h6 mb-16">公司</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">關於我們</a></li>
-                <li><a href="">常見問題</a></li>
-                <li><a href="">旅遊嚮導招募</a></li>
-                <li><a href="">媒體合作</a></li>
-              </ul>
-            </div>
-            <div class="text-white">
-              <h6 class="h6 mb-16">支援</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">退款政策</a></li>
-                <li><a href="">隱私政策</a></li>
-                <li><a href="">服務條款</a></li>
-                <li><a href="">查看訂單</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div
-          class="h6 text-grey border-top footer-text font-family-serif py-16"
-        >
-          <div class="d-flex justify-between">
-            <p>© 2025 島嶼旅跡 IslandTrace. All rights reserved.</p>
-            <p>用心丈量台灣每一寸土地</p>
           </div>
         </div>
       </div>
-    </footer>
-  </body>
+    </nav>
+  </header>
+
+  <main></main>
+  <footer>
+    <div class="container">
+      <div class="footer-section">
+        <div>
+          <h4 class="h4 mb-10 text-white">
+            島嶼旅跡<span class="text-red">·</span>
+          </h4>
+          <div class="h6 text-grey">
+            <p>深入台灣每一條小徑，</p>
+            <p>遇見最在地的感動體驗。</p>
+            <p>我們相信，旅行不只是到達目的地，</p>
+            <p>而是與這片土地真實相遇。</p>
+          </div>
+        </div>
+
+        <div class="footer-link font-family-serif">
+          <div class="text-white">
+            <h6 class="h6 mb-16">探索</h6>
+            <ul class="text-grey footer-nav">
+              <li><a href="">所有體驗</a></li>
+              <li><a href="">戶外冒險</a></li>
+              <li><a href="">手作工藝</a></li>
+              <li><a href="">美食料理</a></li>
+              <li><a href="">文化歷史</a></li>
+            </ul>
+          </div>
+          <div class="text-white">
+            <h6 class="h6 mb-16">公司</h6>
+            <ul class="text-grey footer-nav">
+              <li><a href="">關於我們</a></li>
+              <li><a href="">常見問題</a></li>
+              <li><a href="">旅遊嚮導招募</a></li>
+              <li><a href="">媒體合作</a></li>
+            </ul>
+          </div>
+          <div class="text-white">
+            <h6 class="h6 mb-16">支援</h6>
+            <ul class="text-grey footer-nav">
+              <li><a href="">退款政策</a></li>
+              <li><a href="">隱私政策</a></li>
+              <li><a href="">服務條款</a></li>
+              <li><a href="">查看訂單</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="h6 text-grey border-top footer-text font-family-serif py-16">
+        <div class="d-flex justify-between">
+          <p>© 2025 島嶼旅跡 IslandTrace. All rights reserved.</p>
+          <p>用心丈量台灣每一寸土地</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
