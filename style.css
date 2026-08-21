@@ -219,8 +219,8 @@ nav {
   justify-content: center;
 }
 
-.flex-row{
-    flex-direction: row;
+.flex-row {
+  flex-direction: row;
 }
 
 .g-12 {
@@ -247,8 +247,8 @@ nav {
   text-align: center;
 }
 
-.d-grid{
-    display: grid;
+.d-grid {
+  display: grid;
 }
 
 .ml-10 {
@@ -279,8 +279,16 @@ nav {
   padding-bottom: 16px;
 }
 
+.py-16 {
+  padding: 16px 0;
+}
+
 .py-20 {
   padding: 20px 0;
+}
+
+.py-48 {
+  padding: 48px 0;
 }
 
 .text-orange {
@@ -299,8 +307,12 @@ nav {
   color: var(--primary-grey);
 }
 
-.border-bottom {
-  border-bottom: 1px solid var(--primary-grey);
+.border-top {
+  border-top: 1px solid var(--primary-grey);
+}
+
+.font-family-serif{
+  font-family: serif;
 }
 
 /* 元件 */
