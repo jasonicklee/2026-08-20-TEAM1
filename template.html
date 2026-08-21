@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    .nav-text {
+      font-family: unset;
+    }
+
+.footer-section{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    column-gap: 48px;
+}
+
+.footer-link{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3em; 
+}
+
+.footer-nav{
+    display: grid;
+    gap: 8px;
+}
+
+    .footer-nav a:hover {
+      color: var(--primary-orange);
+    }
+  </style>
+  <body>
+    <header>
+      <nav class="py-20">
+        <div class="container">
+          <div class="d-flex justify-between align-center">
+            <h1 class="h4 align-center text-white">
+              島嶼旅跡<span class="ml-10 text-red">·</span>
+            </h1>
+            <div class="d-flex align-center">
+              <div class="mr-12">
+                <div class="h6 text-white">
+                  <ul class="d-flex g-12">
+                    <li><a href="#">探索體驗</a></li>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">常見問題</a></li>
+                    <li><a href="#">我的訂單</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <a href="#" class="btn btn-orange">登入/註冊</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main></main>
+    <footer>
+      <div class="container">
+        <div class="pt-48 pb-16">
+          <div class="footer-section">
+            <div>
+              <h4 class="h4 mb-10 text-white">
+                島嶼旅跡<span class="text-red">·</span>
+              </h4>
+              <div class="h6 text-grey">
+                <p>深入台灣每一條小徑，</p>
+                <p>遇見最在地的感動體驗。</p>
+                <p>我們相信，旅行不只是到達目的地，</p>
+                <p>而是與這片土地真實相遇。</p>
+              </div>
+            </div>
+
+            <div class=" footer-link">
+              <div class="text-white">
+                <h6 class="h6 mb-16">探索</h6>
+                <ul class="text-grey footer-nav">
+                  <li><a href="">所有體驗</a></li>
+                  <li><a href="">戶外冒險</a></li>
+                  <li><a href="">手作工藝</a></li>
+                  <li><a href="">美食料理</a></li>
+                  <li><a href="">文化歷史</a></li>
+                </ul>
+              </div>
+              <div class="text-white">
+                <h6 class="h6 mb-16">公司</h6>
+                <ul class="text-grey footer-nav">
+                  <li><a href="">關於我們</a></li>
+                  <li><a href="">常見問題</a></li>
+                  <li><a href="">旅遊嚮導招募</a></li>
+                  <li><a href="">媒體合作</a></li>
+                </ul>
+              </div>
+              <div class="text-white">
+                <h6 class="h6 mb-16">支援</h6>
+                <ul class="text-grey footer-nav">
+                  <li><a href="">退款政策</a></li>
+                  <li><a href="">隱私政策</a></li>
+                  <li><a href="">服務條款</a></li>
+                  <li><a href="">查看訂單</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
