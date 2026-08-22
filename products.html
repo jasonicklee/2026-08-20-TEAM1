@@ -101,7 +101,39 @@
     </nav>
   </header>
 
-  <main></main>
+  <!-- 假設 Nav 在這裡 -->
+
+  <main class="container">
+    <!-- 左側：篩選側欄 -->
+    <aside class="filter-sidebar">
+      <div class="sidebar-content">
+        <div class="sidebar-header">
+          <h3>篩選條件</h3>
+          <button type="button" class="btn-reset">清除全部</button>
+        </div>
+        <!-- 篩選組件內容-->
+        <div class="filter-group">
+        </div>
+      </div>
+    </aside>
+
+    <!-- 右側：主要商品列表區塊 -->
+    <section class="product-content">
+      <div class="product-header">
+        <p>共找到 <span>12</span> 個體驗</p>
+        <select class="sort-select">
+          <option>精選推薦</option>
+        </select>
+      </div>
+
+      <!-- 商品卡片 Grid 網格 -->
+      <div class="product-grid">
+        <!-- 商品卡片卡槽，後續再補齊 -->
+      </div>
+    </section>
+  </main>
+
+  <!-- 假設 Footer 在這裡 -->
   <footer>
     <div class="container">
       <div class="footer-section">
@@ -156,6 +188,35 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // 地區陣列
+    const location = ['台北', '新北', '台中', '台南', '高雄', '宜蘭', '花蓮', '嘉義', '屏東', '彰化'];
+    // 商品資料陣列
+    const products = [
+      { id: 1, name: "清水斷崖獨木舟體驗", category: "戶外冒險", location: "花蓮", duration: "半天", price: 1800, rating: 4.9, reviews: 182, tagClass: "tag-outdoor", imageId: 10 },
+      { id: 2, name: "九份老街手作陶藝體驗", category: "手作工藝", location: "新北", duration: "3小時", price: 980, rating: 4.8, reviews: 205, tagClass: "tag-craft", imageId: 11 },
+      { id: 3, name: "台中市場私房料理課", category: "美食料理", location: "台中", duration: "4小時", price: 1500, rating: 4.9, reviews: 189, tagClass: "tag-food", imageId: 12 },
+      { id: 4, name: "阿里山日出觀星露營", category: "戶外冒險", location: "嘉義", duration: "全天", price: 2200, rating: 5.0, reviews: 95, tagClass: "tag-outdoor", imageId: 13 },
+      { id: 5, name: "淡水老街傳統藍染工作坊", category: "手作工藝", location: "新北", duration: "3小時", price: 1200, rating: 4.7, reviews: 147, tagClass: "tag-craft", imageId: 14 },
+      { id: 6, name: "台南府城古蹟深度導覽", category: "文化歷史", location: "台南", duration: "半天", price: 800, rating: 4.8, reviews: 261, tagClass: "tag-history", imageId: 15 },
+      { id: 7, name: "宜蘭龜山島牛奶海SUP體驗", category: "戶外冒險", location: "宜蘭", duration: "半天", price: 1100, rating: 4.8, reviews: 173, tagClass: "tag-outdoor", imageId: 16 },
+      { id: 8, name: "高雄旗津老街漁村料理日", category: "美食料理", location: "高雄", duration: "4小時", price: 1350, rating: 4.6, reviews: 142, tagClass: "tag-food", imageId: 17 },
+      { id: 9, name: "太魯閣峽谷健行之旅", category: "戶外冒險", location: "花蓮", duration: "全天", price: 2500, rating: 4.9, reviews: 287, tagClass: "tag-outdoor", imageId: 18 },
+      { id: 10, name: "彰化扇形車庫鐵道文化探索", category: "文化歷史", location: "彰化", duration: "2小時", price: 700, rating: 4.6, reviews: 118, tagClass: "tag-history", imageId: 19 },
+      { id: 11, name: "墾丁珊瑚礁潛水體驗", category: "戶外冒險", location: "屏東", duration: "半天", price: 1650, rating: 4.8, reviews: 234, tagClass: "tag-outdoor", imageId: 20 },
+      { id: 12, name: "台北茶道文化舒心體驗", category: "文化歷史", location: "台北", duration: "2小時", price: 1200, rating: 4.7, reviews: 195, tagClass: "tag-history", imageId: 21 }
+    ];
+    // 分類資料陣列（包含圖示與類別標籤）
+    const categories = [
+      { name: '戶外冒險', icon: '🏕️', class: 'tag-outdoor' },
+      { name: '手作工藝', icon: '🎨', class: 'tag-craft' },
+      { name: '美食料理', icon: '🍳', class: 'tag-food' },
+      { name: '文化歷史', icon: '🏛️', class: 'tag-history' }
+    ];
+    // 時間選項
+    const durations = ['2小時', '3小時', '4小時', '半天', '全天'];
+  </script>
 </body>
 
 </html>
