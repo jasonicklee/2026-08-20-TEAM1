@@ -13,6 +13,16 @@ header.scrolled {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+footer {
+    background-color: rgb(2, 2, 84);
+}
+
+nav {
+    background-color: transparent;
+    /* 初始完全透明 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* --- 2. Main 雙欄版型 --- */
 main.container {
     width: 90%;
@@ -319,14 +329,4 @@ main.container {
     .product-grid {
         grid-template-columns: 1fr;
     }
-}
-
-footer {
-    background-color: rgb(2, 2, 84);
-}
-
-nav {
-    background-color: transparent;
-    /* 初始完全透明 */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }

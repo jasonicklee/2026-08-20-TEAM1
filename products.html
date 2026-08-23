@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./css/reset.css" />
   <link rel="stylesheet" href="./css/base.css" />
   <link rel="stylesheet" href="./css/pages/products.css" />
-  <title>商品 - 島嶼旅跡</title>
+  <title>探索體驗 - 島嶼旅跡</title>
 </head>
 <style>
   @media (max-width: 768px) {
@@ -258,7 +258,7 @@
 
       productGridEl.innerHTML = list.map(item =>
         `
-         <div class="product-card">
+         <div class="product-card" onclick="location.href='product-detail.html?id=${item.id}'" style="cursor: pointer;">
            <div class="card-img-wrapper">
              <img src="https://picsum.photos/id/${item.imageId}/400" alt="${item.name}">
              <button type="button" class="btn-favorite" title="收藏">♥</button>
