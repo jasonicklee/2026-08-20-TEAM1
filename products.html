@@ -202,24 +202,12 @@
     </div>
   </footer>
 
-  <script>
-    // products
-    const products = [
-      { id: 1, name: "清水斷崖獨木舟體驗", category: "戶外冒險", location: "花蓮", duration: "半天", price: 1800, rating: 4.9, reviews: 182, imageId: 10 },
-      { id: 2, name: "九份老街手作陶藝體驗", category: "手作工藝", location: "新北", duration: "3小時", price: 980, rating: 4.8, reviews: 205, imageId: 11 },
-      { id: 3, name: "台中市場私房料理課", category: "美食料理", location: "台中", duration: "4小時", price: 1500, rating: 4.9, reviews: 189, imageId: 12 },
-      { id: 4, name: "阿里山日出觀星露營", category: "戶外冒險", location: "嘉義", duration: "全天", price: 2200, rating: 5.0, reviews: 95, imageId: 13 },
-      { id: 5, name: "淡水老街傳統藍染工作坊", category: "手作工藝", location: "新北", duration: "3小時", price: 1200, rating: 4.7, reviews: 147, imageId: 14 },
-      { id: 6, name: "台南府城古蹟深度導覽", category: "文化歷史", location: "台南", duration: "半天", price: 800, rating: 4.8, reviews: 261, imageId: 15 },
-      { id: 7, name: "宜蘭龜山島牛奶海SUP體驗", category: "戶外冒險", location: "宜蘭", duration: "半天", price: 1100, rating: 4.8, reviews: 173, imageId: 16 },
-      { id: 8, name: "高雄旗津老街漁村料理日", category: "美食料理", location: "高雄", duration: "4小時", price: 1350, rating: 4.6, reviews: 142, imageId: 17 },
-      { id: 9, name: "太魯閣峽谷健行之旅", category: "戶外冒險", location: "花蓮", duration: "全天", price: 2500, rating: 4.9, reviews: 287, imageId: 18 },
-      { id: 10, name: "彰化扇形車庫鐵道文化探索", category: "文化歷史", location: "彰化", duration: "2小時", price: 700, rating: 4.6, reviews: 118, imageId: 19 },
-      { id: 11, name: "墾丁珊瑚礁潛水體驗", category: "戶外冒險", location: "屏東", duration: "半天", price: 1650, rating: 4.8, reviews: 234, imageId: 20 },
-      { id: 12, name: "台北茶道文化舒心體驗", category: "文化歷史", location: "台北", duration: "2小時", price: 1200, rating: 4.7, reviews: 195, imageId: 21 }
-    ];
 
-    //filter item
+  <!-- products -->
+  <script src="products-data.js"></script>
+
+  <script>
+    // 1. 篩選與排序條件選項設定
     const locationList = ['台北', '新北', '台中', '台南', '高雄', '宜蘭', '花蓮', '嘉義', '屏東', '彰化'];
     const categories = [
       { name: '戶外冒險', icon: '🏕️' },
@@ -228,7 +216,6 @@
       { name: '文化歷史', icon: '🏛️' }
     ];
     const durations = ['2小時', '3小時', '4小時', '半天', '全天'];
-    // sort options
     const sortOptions = [
       { value: 'default', label: '預設排序' },
       { value: 'price-low', label: '價格由低到高' },
@@ -237,16 +224,7 @@
       { value: 'reviews-most', label: '最多評論' }
     ];
 
-    // 將分數轉換為星星圖案 (例如 4.8 -> ★★★★½)
-    function getStarIcons(rating) {
-      const fullStars = Math.floor(rating);
-      const hasHalf = rating % 1 >= 0.5;
-      let stars = '★'.repeat(fullStars);
-      if (hasHalf) stars += '½';
-      return stars;
-    }
-
-    // 渲染Products Function
+    // 3. 渲染商品卡片（使用可點擊連結，並防範愛心按鈕事件冒泡）
     function renderProducts(list) {
       const productGridEl = document.getElementById('product-grid');
       document.getElementById('product-count').textContent = list.length;
@@ -258,154 +236,74 @@
 
       productGridEl.innerHTML = list.map(item =>
         `
-         <div class="product-card" onclick="location.href='product-detail.html?id=${item.id}'" style="cursor: pointer;">
-           <div class="card-img-wrapper">
-             <img src="https://picsum.photos/id/${item.imageId}/400" alt="${item.name}">
-             <button type="button" class="btn-favorite" title="收藏">♥</button>
+       <a href="products-details.html?id=${item.id}" class="product-card">
+         <div class="card-img-wrapper">
+           <img src="https://picsum.photos/id/${item.imageId}/400" alt="${item.name}">
+           <!-- 注意：愛心按鈕必須加上 e.preventDefault() 與 e.stopPropagation() 防止觸發連結 -->
+           <button type="button" class="btn-favorite" title="收藏" onclick="event.preventDefault(); event.stopPropagation();">♥</button>
+         </div>
+         <div class="card-body">
+           <span class="category-badge">${item.category}</span>
+           <h4 class="card-title">${item.name}</h4>
+           <div class="card-info">
+             <span>📍 ${item.location}</span>
+             <span>⏱️ ${item.duration}</span>
            </div>
-           <div class="card-body">
-             <span class="category-badge">${item.category}</span>
-             <h4 class="card-title">${item.name}</h4>
-             <div class="card-info">
-               <span>📍 ${item.location}</span>
-               <span>⏱️ ${item.duration}</span>
+           <div class="card-footer">
+             <div class="price-box">
+               <span class="currency">NT$</span>
+               <span class="amount">${item.price.toLocaleString()}</span>
+               <span class="unit">/ 人起</span>
              </div>
-             <div class="card-footer">
-               <div class="price-box">
-                 <span class="currency">NT$</span>
-                 <span class="amount">${item.price.toLocaleString()}</span>
-                 <span class="unit">/ 人起</span>
-               </div>
-               <div class="rating-box">
-                ${getStarIcons(item.rating)} <span class="count">(${item.reviews})</span>
-               </div>
+             <div class="rating-box">
+             ${getStarIcons(item.rating)}      
+              <span class="count">(${item.reviews})</span>
              </div>
            </div>
          </div>
-      `
+       </a>
+        `
       ).join('');
     }
 
-    // 篩選按鈕 Function
+    // 4. 初始化側邊欄標籤 UI
     function initFilterUI() {
       document.getElementById('location-tags').innerHTML = locationList.map(loc =>
-        `
-        <button type="button" class="tag" data-type="location" data-value="${loc}">${loc}</button>
-      `
+        `<button type="button" class="tag" data-type="location" data-value="${loc}">${loc}</button>`
       ).join('');
 
       document.getElementById('category-tags').innerHTML = categories.map(cat =>
-        `
-        <button type="button" class="tag" data-type="category" data-value="${cat.name}">
-          ${cat.icon} ${cat.name}
-        </button>
-      `
+        `<button type="button" class="tag" data-type="category" data-value="${cat.name}">${cat.icon} ${cat.name}</button>`
       ).join('');
 
       document.getElementById('duration-tags').innerHTML = durations.map(d =>
-        `
-        <button type="button" class="tag" data-type="duration" data-value="${d}">${d}</button>
-      `
+        `<button type="button" class="tag" data-type="duration" data-value="${d}">${d}</button>`
+      ).join('');
+
+      const sortSelectEl = document.querySelector('.sort-select');
+      sortSelectEl.innerHTML = sortOptions.map(opt =>
+        `<option value="${opt.value}">${opt.label}</option>`
       ).join('');
     }
 
-    // 下拉選單 option
-    const sortSelectEl = document.querySelector('.sort-select');
-    sortSelectEl.innerHTML = sortOptions.map(opt =>
-      `
-    <option value="${opt.value}">${opt.label}</option>
-    `
-    ).join('');
-
-    // 初始化執行
-    initFilterUI();
-    renderProducts(products);
-
-    // 事件監聽 (篩選與清空)
-    // 事件監聽 (篩選與清空)
-    const filterSidebar = document.querySelector('.filter-sidebar');
-
-    filterSidebar.addEventListener('click', (e) => {
-      const tagBtn = e.target.closest('.tag');
-      const resetBtn = e.target.closest('.btn-reset');
-
-      if (tagBtn) {
-        // 找到該按鈕所屬的 tag-group（同一個篩選組別）
-        const tagGroup = tagBtn.closest('.tag-group');
-        const isAlreadyActive = tagBtn.classList.contains('active');
-
-        // 1. 先清除同組內所有按鈕的 active 狀態 (達到單選效果)
-        tagGroup.querySelectorAll('.tag').forEach(btn => btn.classList.remove('active'));
-
-        // 2. 如果原本沒被選中，才加上 active (如果原本已有 active，再次點擊就會變回取消選擇)
-        if (!isAlreadyActive) {
-          tagBtn.classList.add('active');
-        }
-
-        // 3. 重新執行篩選與排序
-        executeFilter();
-      }
-
-      if (resetBtn) {
-        // 清除全部 active 狀態
-        document.querySelectorAll('.tag.active').forEach(tag => tag.classList.remove('active'));
-        executeFilter();
-      }
-    }
-    );
-
-    // 執行篩選
-    function executeFilter() {
-      const activeTags = Array.from(document.querySelectorAll('.tag.active'));
-
-      if (activeTags.length === 0) {
-        renderProducts(products);
-        return;
-      }
-
-      const selectedLocations = activeTags.filter(t => t.dataset.type === 'location').map(t => t.dataset.value);
-      const selectedCategories = activeTags.filter(t => t.dataset.type === 'category').map(t => t.dataset.value);
-      const selectedDurations = activeTags.filter(t => t.dataset.type === 'duration').map(t => t.dataset.value);
-
-      const filtered = products.filter(item => {
-        const matchLoc = selectedLocations.length === 0 || selectedLocations.includes(item.location);
-        const matchCat = selectedCategories.length === 0 || selectedCategories.includes(item.category);
-        const matchDur = selectedDurations.length === 0 || selectedDurations.includes(item.duration);
-
-        return matchLoc && matchCat && matchDur;
-      });
-
-      renderProducts(filtered);
-    }
-
+    // 5. 排序處理邏輯
     function sortProducts(list, sortType) {
-      const sortedList = [...list]; // 複製陣列避免污染原資料
-
+      const sortedList = [...list];
       switch (sortType) {
-        case 'price-low':
-          return sortedList.sort((a, b) => a.price - b.price);
-        case 'price-high':
-          return sortedList.sort((a, b) => b.price - a.price);
-        case 'rating-high':
-          return sortedList.sort((a, b) => b.rating - a.rating);
-        case 'reviews-most':
-          return sortedList.sort((a, b) => b.reviews - a.reviews);
+        case 'price-low': return sortedList.sort((a, b) => a.price - b.price);
+        case 'price-high': return sortedList.sort((a, b) => b.price - a.price);
+        case 'rating-high': return sortedList.sort((a, b) => b.rating - a.rating);
+        case 'reviews-most': return sortedList.sort((a, b) => b.reviews - a.reviews);
         case 'default':
-        default:
-          return sortedList.sort((a, b) => a.id - b.id); // 恢復預設 (依 id)
+        default: return sortedList.sort((a, b) => a.id - b.id);
       }
     }
 
-    // option監聽下拉選單改變事件
-    sortSelectEl.addEventListener('change', (e) => {
-      // 取得當前篩選過後的商品列表
-      executeFilter();
-    });
+    // 6. 整合篩選與排序執行函式 (保留一份即可)
     function executeFilter() {
       const activeTags = Array.from(document.querySelectorAll('.tag.active'));
       const currentSort = document.querySelector('.sort-select').value;
 
-      // 1. 先進行條件過濾
       let filtered = products;
 
       if (activeTags.length > 0) {
@@ -417,24 +315,50 @@
           const matchLoc = selectedLocations.length === 0 || selectedLocations.includes(item.location);
           const matchCat = selectedCategories.length === 0 || selectedCategories.includes(item.category);
           const matchDur = selectedDurations.length === 0 || selectedDurations.includes(item.duration);
-
           return matchLoc && matchCat && matchDur;
         });
       }
 
       const finalProducts = sortProducts(filtered, currentSort);
-
       renderProducts(finalProducts);
     }
 
-    //Nav 滾動變色效果
-    const headerEl = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        headerEl.classList.add('scrolled');
-      } else {
-        headerEl.classList.remove('scrolled');
-      }
+    // 7. 事件監聽設定
+    document.addEventListener('DOMContentLoaded', () => {
+      initFilterUI();
+      renderProducts(products);
+
+      const filterSidebar = document.querySelector('.filter-sidebar');
+      filterSidebar.addEventListener('click', (e) => {
+        const tagBtn = e.target.closest('.tag');
+        const resetBtn = e.target.closest('.btn-reset');
+
+        if (tagBtn) {
+          const tagGroup = tagBtn.closest('.tag-group');
+          const isAlreadyActive = tagBtn.classList.contains('active');
+          tagGroup.querySelectorAll('.tag').forEach(btn => btn.classList.remove('active'));
+          if (!isAlreadyActive) tagBtn.classList.add('active');
+          executeFilter();
+        }
+
+        if (resetBtn) {
+          document.querySelectorAll('.tag.active').forEach(tag => tag.classList.remove('active'));
+          executeFilter();
+        }
+      });
+
+      const sortSelectEl = document.querySelector('.sort-select');
+      sortSelectEl.addEventListener('change', executeFilter);
+
+      // Header 滾動樣式
+      const headerEl = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          headerEl.classList.add('scrolled');
+        } else {
+          headerEl.classList.remove('scrolled');
+        }
+      });
     });
   </script>
 </body>

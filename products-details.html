@@ -103,20 +103,20 @@
   <main class="container">
     <!-- 麵包屑導覽 -->
     <nav class="breadcrumb" aria-label="breadcrumb">
-      <a href="#">首頁</a>
+      <a href="products.html">首頁</a>
       <span class="separator">&gt;</span>
-      <a href="#">探索體驗</a>
+      <a href="products.html">探索體驗</a>
       <span class="separator">&gt;</span>
-      <span class="current" id="breadcrumb-title">清水斷崖獨木舟探險</span>
+      <span class="current" id="breadcrumb-title">載入中...</span>
     </nav>
 
     <!-- 1. 上方獨立圖片區 (主圖 + 橫向 4 張縮圖) -->
     <section class="gallery-section">
       <div class="main-image-container" id="main-display-img-wrapper">
-        <!-- JS 會預設載入商品主圖 -->
+        <!-- JS 動態載入 -->
       </div>
       <div class="thumbnails-grid" id="thumbnails-container">
-        <!-- JS 會動態渲染：1 張卡片原圖 + 3 張隨機圖片 -->
+        <!-- JS 動態載入 -->
       </div>
     </section>
 
@@ -125,12 +125,9 @@
       <!-- 左欄：商品詳細說明 -->
       <div class="detail-left-content">
         <div class="detail-header">
-          <h1 class="product-title" id="detail-title">清水斷崖獨木舟探險</h1>
+          <h1 class="product-title" id="detail-title">載入中...</h1>
           <div class="card-info" id="detail-info">
-            <span>📍 花蓮</span>
-            <span>⏱️ 半天</span>
-            <span>🏷️ 戶外冒險</span>
-            <span class="rating-text">★ 4.3 <span class="review-count">(312則評價)</span></span>
+            <!-- JS 動態載入 -->
           </div>
         </div>
 
@@ -138,19 +135,15 @@
         <div class="section-block">
           <h3>體驗介紹</h3>
           <p class="desc-text" id="detail-desc">
-            這是一場深入花蓮在地生活的體驗活動。由當地資深帶路人帶領，您將打破一般觀光行程的框架，真正感受這片土地的溫暖與風味。無論您是第一次探索台灣，或是想逃離都市喧囂的人，這場體驗都將帶您看見不一樣的風景。
+            <!-- JS 動態載入 -->
           </p>
         </div>
 
         <!-- 行程亮點 -->
         <div class="section-block">
           <h3>✦ 行程亮點</h3>
-          <ul class="highlight-list">
-            <li>✦ 深入探索花蓮最具代表性的自然與人文景觀</li>
-            <li>✦ 由在地居民全程陪伴解說，分享第一手在地故事</li>
-            <li>✦ 小班制體驗（最多8人），確保每位旅客都能獲得充分關注</li>
-            <li>✦ 適合青年創業，回饋特殊受益團體或認可參與</li>
-            <li>✦ 體驗結束後提供精美電子紀念照片供旅客典藏</li>
+          <ul class="highlight-list" id="detail-highlights">
+            <!-- JS 動態載入 -->
           </ul>
         </div>
 
@@ -213,17 +206,18 @@
         </div>
       </div>
 
-      <!-- 右欄：Sticky 漂浮預訂 Box (內含原本 Product 卡片的價格與評分資訊) -->
+      <!-- 右欄：Sticky 漂浮預訂 Box -->
       <aside class="floating-booking-card">
         <div class="price-header">
-          <span class="price-amount" id="box-price">NT$ 1,800</span>
-          <span class="price-unit">/ 人起</span>
+          <span class="price-amount" id="box-price">--</span>
         </div>
+        <span class="price-unit">/ 人起</span>
+
 
         <div class="rating-sub">
-          <span class="star">★</span>
-          <span class="score" id="box-rating">4.3</span>
-          <span class="count" id="box-reviews">(312)</span>
+          <span class="star" id="box-star"></span>
+          <span class="score" id="box-rating">--</span>
+          <span class="count" id="box-reviews">(--)</span>
         </div>
 
         <div class="quantity-selector">
@@ -237,10 +231,12 @@
 
         <div class="total-price-row">
           <span class="label">總金額</span>
-          <span class="total-amount">NT$ <span id="total-price-val">1,800</span></span>
+          <span class="total-amount">NT$ <span id="total-price-val">0</span></span>
         </div>
 
-        <button type="button" class="booking-btn" onclick="alert('預訂成功！')">立刻預訂</button>
+        <a href="">
+          <button type="button" class="booking-btn">立刻預訂</button>
+        </a>
 
         <div class="security-note">
           🔒 安全支付 · 免費取消 (7天前)
@@ -303,45 +299,109 @@
     </div>
   </footer>
 
-  <script>
-    // 假資料：模擬從 Products 頁面傳入的商品物件
-    const productData = {
-      id: 1,
-      name: "清水斷崖獨木舟探險",
-      // 抓取原本卡片上的圖片 URL（可替換為實際變數）
-      imgUrl: "https://picsum.photos/id/1015/800/450",
-      price: 1800,
-      rating: 4.3,
-      reviews: 312,
-      location: "花蓮",
-      duration: "半天",
-      category: "戶外冒險"
-    };
+  <!-- 1. 引入共通商品資料檔 -->
+  <script src="products-data.js"></script>
 
-    let currentUnitPrice = productData.price;
+  <script>
+    let currentProduct = null;
+    let currentUnitPrice = 0;
     let currentTicketCount = 1;
 
-    // 初始化相片畫廊 (抓卡片圖 + 隨機生成 3 張)
+    // 2. 從 URL 網址參數 (e.g. product-detail.html?id=3) 取得當前商品 ID
+    function getProductFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const productId = parseInt(params.get('id'), 10) || 1; // 預設為 id: 1
+
+      return products.find(p => p.id === productId) || products[0];
+    }
+
+    // 3. 動態渲染頁面所有資訊
+    function renderProductDetail() {
+      currentProduct = getProductFromUrl();
+      currentUnitPrice = currentProduct.price;
+
+      // A. 動態修改網頁 <title> 與 麵包屑/標題
+      document.title = `${currentProduct.name} - 島嶼旅跡`;
+
+      const breadcrumbEl = document.getElementById('breadcrumb-title');
+      const titleEl = document.getElementById('detail-title');
+      if (breadcrumbEl) breadcrumbEl.innerText = currentProduct.name;
+      if (titleEl) titleEl.innerText = currentProduct.name;
+
+
+      // B. 中段地點/時間/類別/評分資訊
+      const infoEl = document.getElementById('detail-info');
+      if (infoEl) {
+        infoEl.innerHTML = `
+          <span>📍 ${currentProduct.location}</span>
+          <span>⏱️ ${currentProduct.duration}</span>
+          <span>🏷️ ${currentProduct.category}</span>
+          <span class="rating-text">${currentProduct.rating} 
+            ${getStarIcons(currentProduct.rating)}          
+          </span>
+          <span class="review-count">(${currentProduct.reviews}則評價)
+          </span>
+
+        `;
+      }
+
+      // C. 體驗介紹 (統一內文，動態替換地點)
+      const descEl = document.getElementById('detail-desc');
+      if (descEl) {
+        descEl.innerText = `這是一場深入${currentProduct.location}在地生活的體驗活動。由當地資深帶路人帶領，您將打破一般觀光行程的框架，真正感受這片土地的溫暖與風味。無論您是第一次探索台灣，或是想逃離都市喧囂的人，這場體驗都將帶您看見不一樣的風景。`;
+      }
+
+      // D. 行程亮點 (統一內容，動態替換地點)
+      const highlightEl = document.getElementById('detail-highlights');
+      if (highlightEl) {
+        highlightEl.innerHTML = `
+          <li>✦ 深入探索${currentProduct.location}最具代表性的自然與人文景觀</li>
+          <li>✦ 由在地居民全程陪伴解說，分享第一手在地故事</li>
+          <li>✦ 小班制體驗（最多8人），確保每位旅客都能獲得充分關注</li>
+          <li>✦ 適合青年創業，回饋特殊受益團體或認可參與</li>
+          <li>✦ 體驗結束後提供精美電子紀念照片供旅客典藏</li>
+        `;
+      }
+
+      // E. 右側浮動預訂 Box 資訊
+      const boxPriceEl = document.getElementById('box-price');
+      const boxStarEl = document.getElementById('box-star');
+      const boxRatingEl = document.getElementById('box-rating');
+      const boxReviewsEl = document.getElementById('box-reviews');
+      const totalPriceValEl = document.getElementById('total-price-val');
+
+      if (boxPriceEl) boxPriceEl.innerText = `NT$ ${currentProduct.price.toLocaleString()}`;
+      if (boxStarEl) boxStarEl.innerText = `${getStarIcons(currentProduct.rating)}`;
+      if (boxRatingEl) boxRatingEl.innerText = currentProduct.rating;
+      if (boxReviewsEl) boxReviewsEl.innerText = `(${currentProduct.reviews})`;
+      if (totalPriceValEl) totalPriceValEl.innerText = currentProduct.price.toLocaleString();
+
+      // F. 初始化圖片藝廊
+      initGallery(currentProduct);
+    }
+
+    // 4. 初始化相片畫廊 (使用商品內建的 imageId 生成圖片)
     function initGallery(product) {
       const mainImgWrapper = document.getElementById('main-display-img-wrapper');
       const thumbContainer = document.getElementById('thumbnails-container');
 
-      // 1. 卡片原圖作第一張，後續使用 Picsum 隨機 ID 生成 3 張圖
-      const randomIds = [1018, 1025, 1039];
+      if (!mainImgWrapper || !thumbContainer) return;
+
+      const baseId = product.imageId || 10;
       const galleryImages = [
-        product.imgUrl,
-        ...randomIds.map(id => `https://picsum.photos/id/${id}/800/450`)
+        `https://picsum.photos/id/${baseId}/800/450`,
+        `https://picsum.photos/id/${baseId + 10}/800/450`,
+        `https://picsum.photos/id/${baseId + 20}/800/450`,
+        `https://picsum.photos/id/${baseId + 30}/800/450`
       ];
 
-      // 2. 渲染上方主要大圖
       mainImgWrapper.innerHTML = `<img id="main-display-img" src="${galleryImages[0]}" alt="${product.name}">`;
 
-      // 3. 渲染 4 張縮圖
       thumbContainer.innerHTML = galleryImages.map((url, index) => `
-      <div class="thumb-item ${index === 0 ? 'active' : ''}" onclick="switchMainImage('${url}', this)">
-        <img src="${url}" alt="縮圖 ${index + 1}">
-      </div>
-    `).join('');
+        <div class="thumb-item ${index === 0 ? 'active' : ''}" onclick="switchMainImage('${url}', this)">
+          <img src="${url}" alt="縮圖 ${index + 1}">
+        </div>
+      `).join('');
     }
 
     // 點擊縮圖切換主圖
@@ -351,7 +411,6 @@
         mainImg.src = url;
       }
 
-      // 更新高亮框 (active class)
       document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
       element.classList.add('active');
     }
@@ -361,15 +420,31 @@
       currentTicketCount += delta;
       if (currentTicketCount < 1) currentTicketCount = 1;
 
-      document.getElementById('ticket-count').innerText = currentTicketCount;
+      const countEl = document.getElementById('ticket-count');
+      const totalPriceEl = document.getElementById('total-price-val');
 
-      const totalPrice = currentTicketCount * currentUnitPrice;
-      document.getElementById('total-price-val').innerText = totalPrice.toLocaleString();
+      if (countEl) countEl.innerText = currentTicketCount;
+      if (totalPriceEl) {
+        const totalPrice = currentTicketCount * currentUnitPrice;
+        totalPriceEl.innerText = totalPrice.toLocaleString();
+      }
     }
 
-    // 頁面載入後自動執行
+    // 頁面載入時初始化渲染
     document.addEventListener('DOMContentLoaded', () => {
-      initGallery(productData);
+      renderProductDetail();
+
+      // Nav 滾動變色效果
+      const headerEl = document.getElementById('main-header');
+      if (headerEl) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 40) {
+            headerEl.classList.add('scrolled');
+          } else {
+            headerEl.classList.remove('scrolled');
+          }
+        });
+      }
     });
   </script>
 </body>

@@ -48,7 +48,7 @@ main.container {
 
 .main-image-container {
     width: 100%;
-    height: 400px;
+    height: 480px;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 16px;
@@ -62,14 +62,15 @@ main.container {
 
 /* 4張縮圖橫向排列 */
 .thumbnails-grid {
+    width: 40%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 10px;
 }
 
 .thumb-item {
-    height: 90px;
-    border-radius: 12px;
+    height: 70px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     border: 2px solid transparent;
@@ -182,10 +183,11 @@ main.container {
     margin-bottom: 8px;
 }
 
-/* --- 4. 右側 Sticky 漂浮預訂白盒 (圖2樣式) --- */
+/* --- 4. 右側 Sticky 漂浮預訂白盒--- */
 .floating-booking-card {
     position: sticky;
     top: 100px;
+    width: 300px;
     /* 畫面捲動時黏在頂部下方 */
     background: #ffffff;
     border-radius: 24px;
@@ -201,22 +203,25 @@ main.container {
 }
 
 .price-amount {
-    font-size: 26px;
+    font-size: 2rem;
     font-weight: 800;
     color: #e05638;
 }
 
 .price-unit {
-    font-size: 13px;
+    font-size: 1em;
+    margin-bottom: 10px;
     color: #888;
 }
 
 .rating-sub {
-    font-size: 13px;
+    font-size: 1em;
     color: #666;
     margin-top: 6px;
     margin-bottom: 20px;
+    padding-top: 16px;
     padding-bottom: 16px;
+    border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
 
