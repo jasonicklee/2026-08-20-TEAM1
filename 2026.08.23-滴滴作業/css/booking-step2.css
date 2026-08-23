@@ -1,0 +1,242 @@
+/* --------------------------------------------------
+ * booking.css - 預訂體驗頁面獨立專用樣式
+ * -------------------------------------------------- */
+
+/* 變數備用補充（若 base.css 缺少的部分） */
+:root {
+    --gray-2: #e5e7eb;
+    --gray-4: #9ca3af;
+    --sand-dark: #e5e0d8;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: 0.3s ease;
+}
+
+/* 頁面整體結構 */
+.booking-page {
+    padding: 100px 5% 80px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* 卡片容器 */
+.form-card {
+    background: var(--primary-white, #fff);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+.form-card-title {
+    font-family: "Noto Serif TC", serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgb(2, 2, 84);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--sand-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 表單控制元件 (Form Elements) */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--gray-2);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--primary-orange, darkorange);
+}
+
+.form-input.error,
+.form-textarea.error {
+    border-color: var(--primary-red, red);
+}
+
+.form-error {
+    display: none;
+    color: var(--primary-red, red);
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+.form-error.show {
+    display: block;
+}
+
+/* 付款方式選項 (Payment options) */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-opt {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--gray-2);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.payment-opt.selected {
+    border-color: var(--primary-orange, darkorange);
+    background: #fef0eb;
+}
+
+.payment-opt input[type="radio"] {
+    display: none;
+}
+
+.payment-opt-icon {
+    font-size: 1.5rem;
+}
+
+.payment-opt-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.payment-opt-sub {
+    font-size: 0.78rem;
+    color: var(--gray-4);
+}
+
+.cc-fields {
+    display: none;
+    margin-top: 16px;
+}
+
+.cc-fields.show {
+    display: block;
+}
+
+.cc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* 按鈕延伸樣式 */
+.btn-primary {
+    background-color: var(--primary-orange, darkorange);
+    color: var(--primary-white, #fff);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 700;
+    transition: opacity var(--transition);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* 訂單摘要 (Summary Sidebar) */
+.booking-summary {
+    background: var(--primary-white, #fff);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 28px;
+    position: sticky;
+    top: 100px;
+}
+
+.summary-title {
+    font-family: "Noto Serif TC", serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(2, 2, 84);
+    margin-bottom: 16px;
+}
+
+.summary-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-2);
+}
+
+.summary-row.total {
+    border-bottom: none;
+    margin-top: 8px;
+    padding-top: 12px;
+}
+
+.summary-label {
+    color: var(--gray-4);
+}
+
+.summary-val {
+    font-weight: 600;
+}
+
+.total-val {
+    font-family: "Noto Serif TC", serif;
+    font-size: 1.3rem;
+    color: var(--primary-orange, darkorange);
+}
+
+/* RWD 響應式微調整 */
+@media (max-width: 768px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-summary {
+        position: static;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}

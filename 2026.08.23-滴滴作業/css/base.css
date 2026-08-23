@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap");
+
+/* 全域設定 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Serif TC", serif;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav,
+footer {
+  background-color: rgb(2, 2, 84);
+}
+
+/* nav {
+  background-color: green;
+} */
+
+/* conatainer設定 */
+.container {
+  margin: 0 auto;
+  max-width: 1400px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* 顏色設定 */
+:root {
+  --primary-orange: darkorange;
+  --primary-white: white;
+  --primary-red: red;
+  --primary-grey: lightgrey;
+}
+
+/* 字級設定 */
+.h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.h4 {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.h5 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.h6 {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* utils設定 */
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.g-12 {
+  gap: 12px;
+}
+
+.g-128 {
+  gap: 128px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-12 {
+  margin-right: 12px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.pt-48 {
+  padding-top: 48px;
+}
+
+.pb-16 {
+  padding-bottom: 16px;
+}
+
+.py-16 {
+  padding: 16px 0;
+}
+
+.py-20 {
+  padding: 20px 0;
+}
+
+.py-48 {
+  padding: 48px 0;
+}
+
+.text-orange {
+  color: var(--primary-orange);
+}
+
+.text-white {
+  color: var(--primary-white);
+}
+
+.text-red {
+  color: var(--primary-red);
+}
+
+.text-grey {
+  color: var(--primary-grey);
+}
+
+.border-top {
+  border-top: 1px solid var(--primary-grey);
+}
+
+.font-family-serif {
+  font-family: serif;
+}
+
+/* 元件 */
+.btn {
+  padding: 8px 24px;
+  border-radius: 50rem;
+  border: unset;
+  background-color: transparent;
+  color: var(--primary-white);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.btn-orange {
+  background-color: orangered;
+}

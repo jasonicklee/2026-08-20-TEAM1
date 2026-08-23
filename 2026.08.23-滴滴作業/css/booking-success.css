@@ -1,0 +1,173 @@
+/* --------------------------------------------------
+ * booking-success.css - 預訂成功頁面獨立專用樣式
+ * -------------------------------------------------- */
+
+/* 變數補充映射（對齊共用檔規範） */
+:root {
+    --green-light: #e6f4ea;
+    --sand: #f8f6f0;
+    --text: #222222;
+    --radius-lg: 16px;
+}
+
+/* 頁面整體結構 */
+.success-page {
+    padding: 120px 5% 80px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 打勾圖示容器與動畫 */
+.success-icon-wrap {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--green-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    animation: pop 0.5s cubic-bezier(0.17, 0.67, 0.45, 1.3) 0.3s both;
+}
+
+.success-icon {
+    font-size: 3.5rem;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 主副標題與動畫 */
+.success-title {
+    font-family: "Noto Serif TC", serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 900;
+    color: rgb(2, 2, 84);
+    margin-bottom: 12px;
+    animation: fadeUp 0.5s 0.4s both;
+}
+
+.success-sub {
+    color: #888;
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+    animation: fadeUp 0.5s 0.5s both;
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 訂單詳情卡片 */
+.order-card {
+    background: var(--sand);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    text-align: left;
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s 0.6s both;
+}
+
+.order-card-title {
+    font-family: "Noto Serif TC", serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(2, 2, 84);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-no {
+    background: rgb(2, 2, 84);
+    color: var(--primary-white, #fff);
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-family: monospace;
+}
+
+.order-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.order-row:last-child {
+    border-bottom: none;
+}
+
+.order-label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.order-val {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.order-total-val {
+    font-family: "Noto Serif TC", serif;
+    font-size: 1.4rem;
+    color: var(--primary-orange, darkorange);
+}
+
+/* 按鈕動作區 */
+.success-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.5s 0.7s both;
+}
+
+.btn-outline {
+    border: 1px solid rgb(2, 2, 84);
+    color: rgb(2, 2, 84);
+    background: transparent;
+    padding: 10px 24px;
+    border-radius: 50rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgb(2, 2, 84);
+    color: #fff;
+}
+
+.btn-primary {
+    background: var(--primary-orange, darkorange);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 50rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
