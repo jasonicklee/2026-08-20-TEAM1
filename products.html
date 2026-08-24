@@ -8,71 +8,70 @@
   <link rel="stylesheet" href="./css/base.css" />
   <link rel="stylesheet" href="./css/pages/products.css" />
   <title>探索體驗 - 島嶼旅跡</title>
-</head>
-<style>
-  @media (max-width: 768px) {
-    .nav-bar {
-      display: none;
+  <style>
+    @media (max-width: 768px) {
+      .nav-bar {
+        display: none;
+      }
     }
-  }
 
-  .nav-btn a:hover {
-    transition: opacity 0.3s ease;
-    background-color: rgb(248, 185, 69);
-  }
+    .nav-btn a:hover {
+      transition: opacity 0.3s ease;
+      background-color: rgb(248, 185, 69);
+    }
 
-  .nav-link {
-    position: relative;
-  }
+    .nav-link {
+      position: relative;
+    }
 
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-orange);
-    transition: width 0.3s ease;
-  }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-orange);
+      transition: width 0.3s ease;
+    }
 
-  .nav-link:hover::after {
-    width: 100%;
-  }
+    .nav-link:hover::after {
+      width: 100%;
+    }
 
-  .footer-section {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    column-gap: 48px;
-    padding: 48px 0;
-  }
+    .footer-section {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      column-gap: 48px;
+      padding: 48px 0;
+    }
 
-  .footer-link {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3em;
-  }
-
-  @media (max-width: 768px) {
     .footer-link {
-      grid-template-columns: 2fr 2fr;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
     }
-  }
 
-  .footer-nav {
-    display: grid;
-    gap: 8px;
-  }
+    @media (max-width: 768px) {
+      .footer-link {
+        grid-template-columns: 2fr 2fr;
+      }
+    }
 
-  .footer-nav a:hover {
-    color: var(--primary-orange);
-  }
+    .footer-nav {
+      display: grid;
+      gap: 8px;
+    }
 
-  .footer.text {
-    border-top: 1px solid var(--primary-grey);
-  }
-</style>
+    .footer-nav a:hover {
+      color: var(--primary-orange);
+    }
 
+    .footer.text {
+      border-top: 1px solid var(--primary-grey);
+    }
+  </style>
+</head>
 <body>
   <header id="main-header">
     <nav class="py-20">
