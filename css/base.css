@@ -42,9 +42,13 @@ footer {
 /* 顏色設定 */
 :root {
   --primary-orange: darkorange;
+  --primary-lightorange: rgb(255, 239, 210);
   --primary-white: white;
   --primary-red: red;
   --primary-grey: lightgrey;
+  --primary-green: #567757;
+  --primary-lightgreen: #ebf5ef;
+  --primary-blue: rgb(2, 2, 84);
 }
 
 /* 字級設定 */
@@ -89,6 +93,10 @@ footer {
 
 .flex-row {
   flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 .g-12 {
@@ -139,12 +147,24 @@ footer {
   margin-bottom: 16px;
 }
 
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.pt-16 {
+  padding-top: 16px;
+}
+
 .pt-48 {
   padding-top: 48px;
 }
 
 .pb-16 {
   padding-bottom: 16px;
+}
+
+.pb-48 {
+  padding-bottom: 48px;
 }
 
 .py-16 {
@@ -157,6 +177,10 @@ footer {
 
 .py-48 {
   padding: 48px 0;
+}
+
+.text-blue {
+  color: var(--primary-blue);
 }
 
 .text-orange {
@@ -175,6 +199,14 @@ footer {
   color: var(--primary-grey);
 }
 
+.text-green {
+  color: var(--primary-green);
+}
+
+.text-left {
+  text-align: left;
+}
+
 .border-top {
   border-top: 1px solid var(--primary-grey);
 }
@@ -183,17 +215,49 @@ footer {
   font-family: serif;
 }
 
+.w-100{
+  width: 100%;
+}
+
 /* 元件 */
 .btn {
   padding: 8px 24px;
   border-radius: 50rem;
   border: unset;
   background-color: transparent;
-  color: var(--primary-white);
   font-weight: 700;
   line-height: 1.5;
+  cursor: pointer;
 }
 
 .btn-orange {
   background-color: orangered;
+}
+
+.btn-lightgreen {
+  background-color: var(--primary-lightgreen);
+}
+
+.badge {
+  --badge-padding-x: 12px;
+  --badge-padding-y: 8px;
+  --badge-font-size: 0.75em;
+  --badge-font-weight: 700;
+  --badge-border-radius: 50rem;
+  display: inline-block;
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  font-size: var(--badge-font-size);
+  font-weight: var(--badge-font-weight);
+  line-height: 1;
+  text-align: center;
+  vertical-align: baseline;
+  border-radius: var(--badge-border-radius);
+}
+
+.badge-green {
+  background-color: var(--primary-lightgreen);
+}
+
+.badge-orange {
+  background-color: var(--primary-lightorange);
 }

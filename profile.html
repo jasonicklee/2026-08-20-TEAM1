@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/page/profile.css" />
+    <title>Document</title>
+    <style>
+      @media (max-width: 768px) {
+        .nav-bar {
+          display: none;
+        }
+      }
+      .nav-btn a:hover {
+        transition: opacity 0.3s ease;
+        background-color: rgb(248, 185, 69);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-orange);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .footer-section {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        column-gap: 48px;
+        padding: 48px 0;
+      }
+
+      .footer-link {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3em;
+      }
+
+      @media (max-width: 768px) {
+        .footer-link {
+          grid-template-columns: 2fr 2fr;
+        }
+      }
+
+      .footer-nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .footer-nav a:hover {
+        color: var(--primary-orange);
+      }
+
+      .footer.text {
+        border-top: 1px solid var(--primary-grey);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="py-20">
+        <div class="container">
+          <div class="d-flex justify-between align-center">
+            <h1 class="h4 align-center text-white">
+              <a href="#">島嶼旅跡<span class="ml-10 text-red">·</span></a>
+            </h1>
+            <div class="d-flex align-center nav-bar">
+              <div class="mr-12">
+                <div class="h6 text-white font-family-serif">
+                  <ul class="d-flex g-12">
+                    <li><a href="#" class="nav-link">探索體驗</a></li>
+                    <li><a href="#" class="nav-link">關於我們</a></li>
+                    <li><a href="#" class="nav-link">常見問題</a></li>
+                    <li><a href="#" class="nav-link">我的訂單</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="font-family-serif nav-btn">
+                <a href="#" class="btn btn-orange text-white">登入/註冊</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="pt-16 pb-48">
+        <div class="container">
+          <div class="profile-layout">
+            <div class="d-flex flex-column">
+              <div class="profile mb-20">
+                <img src="https://picsum.photos/50" alt="" />
+                <p class="text-blue">旅遊達人</p>
+                <p class="text-grey">demo@islandtrace.tw</p>
+                <p class="badge badge-green">
+                  ⭐ <span class="h6 text-green">探險會員</span>
+                </p>
+              </div>
+
+              <!-- 左邊 -->
+              <div class="sidebar">
+                <div class="tab-menu">
+                  <button type="button" class="tab-btn active" data-tab="order">
+                    訂單紀錄
+                  </button>
+                  <button type="button" class="tab-btn" data-tab="favorite">
+                    我的收藏
+                  </button>
+                  <button type="button" class="tab-btn" data-tab="profile">
+                    個人資料
+                  </button>
+                  <button type="button" class="tab-btn text-red">登出</button>
+                </div>
+              </div>
+            </div>
+            <!-- 右邊 -->
+            <div class="profile-content">
+              <div class="tab-pane active" id="order">
+                <h2 class="h3">訂單紀錄</h2>
+                <table class="order-table">
+                  <thead>
+                    <tr>
+                      <th class="text-left">體驗</th>
+                      <th>日期 / 場次</th>
+                      <th>金額</th>
+                      <th>狀態</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="experience">
+                          <img
+                            src="https://picsum.photos/50"
+                            alt=""
+                            class="mr-12"
+                          />
+                          <div class="experience-info">
+                            <p class="experience-title">清水斷崖獨木舟探險</p>
+                            <p class="experience-location">📍 花蓮</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p>2025/7/15</p>
+                        <p class="text-grey">上午場 09:00</p>
+                      </td>
+                      <td class="text-red">NT$ 1,800</td>
+                      <td>
+                        <span
+                          class="badge badge-orange text-orange font-family-serif"
+                          >未出發</span
+                        >
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-order">
+                          取消訂單
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="experience">
+                          <img
+                            src="https://picsum.photos/50"
+                            alt=""
+                            class="mr-12"
+                          />
+                          <div class="experience-info">
+                            <p class="experience-title">
+                              淡水老街藍染拼布工作坊
+                            </p>
+                            <p class="experience-location">📍 新北</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p>2025/5/20</p>
+                        <p class="text-grey">下午場 14:00</p>
+                      </td>
+                      <td class="text-red">NT$ 1,200</td>
+                      <td>
+                        <span
+                          class="badge badge-orange text-green font-family-serif"
+                          >已完成</span
+                        >
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tab-pane" id="favorite">
+                <div>
+                  <h2 class="h3">我的收藏</h2>
+                  <div class="collect-content">
+                    <p class="mb-10 font-family-serif">收藏清單是空的</p>
+                    <p class="mb-10 font-family-serif">
+                      在體驗列表頁點選愛心圖示，即可加入收藏
+                    </p>
+                    <button type="button" class="btn btn-orange text-white">
+                      去探索體驗
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <form>
+                <div class="tab-pane" id="profile">
+                  <h2 class="h3">個人資料</h2>
+                  <div class="profile-form">
+                    <div class="form-item">
+                      <label for="name" class="h6 font-family-serif text-blue"
+                        >姓名</label
+                      >
+                      <input
+                        type="text"
+                        id="name"
+                        value="旅遊達人"
+                        placeholder="請輸入姓名"
+                      />
+                    </div>
+                    <div class="form-item">
+                      <label
+                        for="phoneNum"
+                        class="h6 font-family-serif text-blue"
+                        >手機號碼</label
+                      >
+                      <input
+                        type="text"
+                        id="phoneNum"
+                        placeholder="09xx-xxx-xxx"
+                      />
+                    </div>
+                    <div class="form-item">
+                      <label for="email" class="h6 font-family-serif text-blue"
+                        >電子信箱</label
+                      >
+                      <input
+                        type="email"
+                        id="email"
+                        value="demo@islandtrace.tw"
+                        placeholder="請輸入電子信箱"
+                      />
+                    </div>
+                    <div class="form-item">
+                      <label
+                        for="birthday"
+                        class="h6 font-family-serif text-blue"
+                        >出生日期</label
+                      >
+                      <input type="date" id="birthday" />
+                    </div>
+                    <div>
+                      <p class="h6 font-family-serif text-blue">旅遊偏好</p>
+                      <div>
+                        🧳 戶外冒險　🎨 手作工藝　🍷 美食料理　🏛 文化歷史
+                      </div>
+                    </div>
+                    <div class="save-button">
+                      <button type="button" class="btn btn-orange text-white">
+                        儲存更改
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="footer-section">
+          <div>
+            <h4 class="h4 mb-10 text-white">
+              島嶼旅跡<span class="text-red">·</span>
+            </h4>
+            <div class="h6 text-grey">
+              <p>深入台灣每一條小徑，</p>
+              <p>遇見最在地的感動體驗。</p>
+              <p>我們相信，旅行不只是到達目的地，</p>
+              <p>而是與這片土地真實相遇。</p>
+            </div>
+          </div>
+
+          <div class="footer-link font-family-serif">
+            <div class="text-white">
+              <h6 class="h6 mb-16">探索</h6>
+              <ul class="text-grey footer-nav">
+                <li><a href="">所有體驗</a></li>
+                <li><a href="">戶外冒險</a></li>
+                <li><a href="">手作工藝</a></li>
+                <li><a href="">美食料理</a></li>
+                <li><a href="">文化歷史</a></li>
+              </ul>
+            </div>
+            <div class="text-white">
+              <h6 class="h6 mb-16">公司</h6>
+              <ul class="text-grey footer-nav">
+                <li><a href="">關於我們</a></li>
+                <li><a href="">常見問題</a></li>
+                <li><a href="">旅遊嚮導招募</a></li>
+                <li><a href="">媒體合作</a></li>
+              </ul>
+            </div>
+            <div class="text-white">
+              <h6 class="h6 mb-16">支援</h6>
+              <ul class="text-grey footer-nav">
+                <li><a href="">退款政策</a></li>
+                <li><a href="">隱私政策</a></li>
+                <li><a href="">服務條款</a></li>
+                <li><a href="">查看訂單</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="h6 text-grey border-top footer-text font-family-serif py-16"
+        >
+          <div class="d-flex justify-between">
+            <p>© 2025 島嶼旅跡 IslandTrace. All rights reserved.</p>
+            <p>用心丈量台灣每一寸土地</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      const tabPanes = document.querySelectorAll(".tab-pane");
+
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          tabBtns.forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          tabPanes.forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          btn.classList.add("active");
+
+          const tabName = btn.dataset.tab;
+          const target = document.querySelector(`#${tabName}`);
+
+          target.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
