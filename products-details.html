@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/pages/products-details.css" />
+  <title>體驗詳情 - 島嶼旅跡</title>
+  <style>
+    @media (max-width: 768px) {
+      .nav-bar {
+        display: none;
+      }
+    }
+
+    .nav-btn a:hover {
+      transition: opacity 0.3s ease;
+      background-color: rgb(248, 185, 69);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-orange);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .footer-section {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      column-gap: 48px;
+      padding: 48px 0;
+    }
+
+    .footer-link {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
+    }
+
+    @media (max-width: 768px) {
+      .footer-link {
+        grid-template-columns: 2fr 2fr;
+      }
+    }
+
+    .footer-nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-nav a:hover {
+      color: var(--primary-orange);
+    }
+
+    .footer.text {
+      border-top: 1px solid var(--primary-grey);
+    }
+  </style>
+</head>
+
+<body>
+  <header id="main-header">
+    <nav class="py-20">
+      <div class="container">
+        <div class="d-flex justify-between align-center">
+          <h1 class="h4 align-center text-white">
+            <a href="#">島嶼旅跡<span class="ml-10 text-red">·</span></a>
+          </h1>
+          <div class="d-flex align-center nav-bar">
+            <div class="mr-12">
+              <div class="h6 text-white font-family-serif">
+                <ul class="d-flex g-12">
+                  <li><a href="#" class="nav-link">探索體驗</a></li>
+                  <li><a href="#" class="nav-link">關於我們</a></li>
+                  <li><a href="#" class="nav-link">常見問題</a></li>
+                  <li><a href="#" class="nav-link">我的訂單</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="font-family-serif nav-btn">
+              <a href="#" class="btn btn-orange">登入/註冊</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <!-- 麵包屑導覽 -->
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="products.html">首頁</a>
+      <span class="separator">&gt;</span>
+      <a href="products.html">探索體驗</a>
+      <span class="separator">&gt;</span>
+      <span class="current" id="breadcrumb-title">載入中...</span>
+    </nav>
+
+    <!-- 1. 上方獨立圖片區 (主圖 + 橫向 4 張縮圖) -->
+    <section class="gallery-section">
+      <div class="main-image-container" id="main-display-img-wrapper">
+        <!-- JS 動態載入 -->
+      </div>
+      <div class="thumbnails-grid" id="thumbnails-container">
+        <!-- JS 動態載入 -->
+      </div>
+    </section>
+
+    <!-- 2. 下方雙欄主要內容區 -->
+    <div class="detail-body-layout">
+      <!-- 左欄：商品詳細說明 -->
+      <div class="detail-left-content">
+        <div class="detail-header">
+          <h1 class="product-title" id="detail-title">載入中...</h1>
+          <div class="card-info" id="detail-info">
+            <!-- JS 動態載入 -->
+          </div>
+        </div>
+
+        <!-- 體驗介紹 -->
+        <div class="section-block">
+          <h3>體驗介紹</h3>
+          <p class="desc-text" id="detail-desc">
+            <!-- JS 動態載入 -->
+          </p>
+        </div>
+
+        <!-- 行程亮點 -->
+        <div class="section-block">
+          <h3>✦ 行程亮點</h3>
+          <ul class="highlight-list" id="detail-highlights">
+            <!-- JS 動態載入 -->
+          </ul>
+        </div>
+
+        <!-- 費用說明 (綠/粉色雙方框) -->
+        <div class="section-block">
+          <h3>費用說明</h3>
+          <div class="fee-boxes-grid">
+            <div class="fee-box fee-include">
+              <h4><span class="icon">✓</span> 費用包含</h4>
+              <ul>
+                <li>專業導覽員導覽全程</li>
+                <li>相關體驗器材與裝備</li>
+                <li>旅遊責任保險</li>
+                <li>體驗結束後的紀念照片</li>
+              </ul>
+            </div>
+            <div class="fee-box fee-exclude">
+              <h4><span class="icon">✕</span> 費用不包含</h4>
+              <ul>
+                <li>交通費用（往返集合地點）</li>
+                <li>個人餐飲費用</li>
+                <li>個人發票特快</li>
+                <li>額外消費項目</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 旅客評論 -->
+        <div class="section-block border-none">
+          <h3>旅客評論</h3>
+          <div class="reviews-list">
+            <div class="review-item">
+              <div class="review-avatar">
+                <img src="https://picsum.photos/id/64/60/60" alt="林小美">
+              </div>
+              <div class="review-content">
+                <div class="review-user-info">
+                  <span class="user-name">林小美</span>
+                  <span class="review-date">2025.04</span>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">非常棒的體驗！導覽員非常專業又親切，帶我們玩得非常開心，強烈推薦給第一次想深入了解台灣的朋友！</p>
+              </div>
+            </div>
+            <div class="review-item">
+              <div class="review-avatar">
+                <img src="https://picsum.photos/id/1005/60/60" alt="王大明">
+              </div>
+              <div class="review-content">
+                <div class="review-user-info">
+                  <span class="user-name">王大明</span>
+                  <span class="review-date">2025.03</span>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">這是我今年最難忘的體驗之一，感謝導覽員分享了許多在地故事，讓整趟旅程充滿溫暖。下次一定會再來！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右欄：Sticky 漂浮預訂 Box -->
+      <aside class="floating-booking-card">
+        <div class="price-header">
+          <span class="price-amount" id="box-price">--</span>
+        </div>
+        <span class="price-unit">/ 人起</span>
+
+
+        <div class="rating-sub">
+          <span class="star" id="box-star"></span>
+          <span class="score" id="box-rating">--</span>
+          <span class="count" id="box-reviews">(--)</span>
+        </div>
+
+        <div class="quantity-selector">
+          <span class="label">參加人數</span>
+          <div class="counter-box">
+            <button type="button" class="btn-counter" onclick="updateCount(-1)">-</button>
+            <span id="ticket-count" class="count-num">1</span>
+            <button type="button" class="btn-counter" onclick="updateCount(1)">+</button>
+          </div>
+        </div>
+
+        <div class="total-price-row">
+          <span class="label">總金額</span>
+          <div class="total-amount">
+            <span>NT$ </span>
+            <span id="total-price-val">0</span>
+          </div>
+        </div>
+        <button type="button" class="booking-btn" onclick="">立刻預訂</button>
+        <div class="security-note">
+          🔒 安全支付 · 免費取消 (7天前)
+        </div>
+      </aside>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-section">
+        <div>
+          <h4 class="h4 mb-10 text-white">
+            島嶼旅跡<span class="text-red">·</span>
+          </h4>
+          <div class="h6 text-grey">
+            <p>深入台灣每一條小徑，</p>
+            <p>遇見最在地的感動體驗。</p>
+            <p>我們相信，旅行不只是到達目的地，</p>
+            <p>而是與這片土地真實相遇。</p>
+          </div>
+        </div>
+
+        <div class="footer-link font-family-serif">
+          <div class="text-white">
+            <h6 class="h6 mb-16">探索</h6>
+            <ul class="text-grey footer-nav">
+              <li><a href="">所有體驗</a></li>
+              <li><a href="">戶外冒險</a></li>
+              <li><a href="">手作工藝</a></li>
+              <li><a href="">美食料理</a></li>
+              <li><a href="">文化歷史</a></li>
+            </ul>
+          </div>
+          <div class="text-white">
+            <h6 class="h6 mb-16">公司</h6>
+            <ul class="text-grey footer-nav">
+              <li><a href="">關於我們</a></li>
+              <li><a href="">常見問題</a></li>
+              <li><a href="">旅遊嚮導招募</a></li>
+              <li><a href="">媒體合作</a></li>
+            </ul>
+          </div>
+          <div class="text-white">
+            <h6 class="h6 mb-16">支援</h6>
+            <ul class="text-grey footer-nav">
+              <li><a href="">退款政策</a></li>
+              <li><a href="">隱私政策</a></li>
+              <li><a href="">服務條款</a></li>
+              <li><a href="">查看訂單</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="h6 text-grey border-top footer-text font-family-serif py-16">
+        <div class="d-flex justify-between">
+          <p>© 2025 島嶼旅跡 IslandTrace. All rights reserved.</p>
+          <p>用心丈量台灣每一寸土地</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--共通商品資料檔 -->
+  <script src="products-data.js"></script>
+
+  <script>
+    let currentProduct = null;
+    let currentUnitPrice = 0;
+    let currentTicketCount = 1;
+
+    // 從 URL 網址參數 (e.g. products-detaisl.html?id=3) 取得當前商品 ID
+    function getProductFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const productId = parseInt(params.get('id'), 10) || 1; // 預設為 id: 1
+
+      return products.find(p => p.id === productId) || products[0];
+    }
+
+    // 動態渲染頁面所有資訊
+    function renderProductDetail() {
+      currentProduct = getProductFromUrl();
+      currentUnitPrice = currentProduct.price;
+
+      // 動態修改網頁 <title> 與 麵包屑/標題
+      document.title = `${currentProduct.name} - 島嶼旅跡`;
+
+      const breadcrumbEl = document.getElementById('breadcrumb-title');
+      const titleEl = document.getElementById('detail-title');
+      if (breadcrumbEl) breadcrumbEl.innerText = currentProduct.name;
+      if (titleEl) titleEl.innerText = currentProduct.name;
+
+
+      // 地點/時間/類別/評分資訊
+      const infoEl = document.getElementById('detail-info');
+      if (infoEl) {
+        infoEl.innerHTML = `
+          <span>📍 ${currentProduct.location}</span>
+          <span>⏱️ ${currentProduct.duration}</span>
+          <span>🏷️ ${currentProduct.category}</span>
+          <span class="rating-text">${currentProduct.rating} 
+            ${getStarIcons(currentProduct.rating)}          
+          </span>
+          <span class="review-count">(${currentProduct.reviews}則評價)
+          </span>
+
+        `;
+      }
+
+      // 體驗介紹 (地點用location)
+      const descEl = document.getElementById('detail-desc');
+      if (descEl) {
+        descEl.innerText = `這是一場深入${currentProduct.location}在地生活的體驗活動。由當地資深帶路人帶領，您將打破一般觀光行程的框架，真正感受這片土地的溫暖與風味。無論您是第一次探索台灣，或是想逃離都市喧囂的人，這場體驗都將帶您看見不一樣的風景。`;
+      }
+
+      // 行程亮點 (地點用location)
+      const highlightEl = document.getElementById('detail-highlights');
+      if (highlightEl) {
+        highlightEl.innerHTML = `
+          <li>✦ 深入探索${currentProduct.location}最具代表性的自然與人文景觀</li>
+          <li>✦ 由在地居民全程陪伴解說，分享第一手在地故事</li>
+          <li>✦ 小班制體驗（最多8人），確保每位旅客都能獲得充分關注</li>
+          <li>✦ 適合青年創業，回饋特殊受益團體或認可參與</li>
+          <li>✦ 體驗結束後提供精美電子紀念照片供旅客典藏</li>
+        `;
+      }
+
+      // 右側浮動預訂 Box 資訊
+      const boxPriceEl = document.getElementById('box-price');
+      const boxStarEl = document.getElementById('box-star');
+      const boxRatingEl = document.getElementById('box-rating');
+      const boxReviewsEl = document.getElementById('box-reviews');
+      const totalPriceValEl = document.getElementById('total-price-val');
+
+      if (boxPriceEl) boxPriceEl.innerText = `NT$ ${currentProduct.price.toLocaleString()}`;
+      if (boxStarEl) boxStarEl.innerText = getStarIcons(currentProduct.rating);
+      if (boxRatingEl) boxRatingEl.innerText = currentProduct.rating;
+      if (boxReviewsEl) boxReviewsEl.innerText = `(${currentProduct.reviews})`;
+      if (totalPriceValEl) totalPriceValEl.innerText = currentProduct.price.toLocaleString();
+
+      // F. 初始化圖片藝廊
+      initGallery(currentProduct);
+    }
+
+    // 四縮圖
+    function initGallery(product) {
+      const mainImgWrapper = document.getElementById('main-display-img-wrapper');
+      const thumbContainer = document.getElementById('thumbnails-container');
+
+      if (!mainImgWrapper || !thumbContainer) return;
+
+      const baseId = product.imageId || 10;
+      const galleryImages = [
+        `https://picsum.photos/id/${baseId}/800/450`,
+        `https://picsum.photos/id/${baseId + 10}/800/450`,
+        `https://picsum.photos/id/${baseId + 20}/800/450`,
+        `https://picsum.photos/id/${baseId + 30}/800/450`
+      ];
+
+      mainImgWrapper.innerHTML = `<img id="main-display-img" src="${galleryImages[0]}" alt="${product.name}">`;
+
+      thumbContainer.innerHTML = galleryImages.map((url, index) => `
+        <div class="thumb-item ${index === 0 ? 'active' : ''}" onclick="switchMainImage('${url}', this)">
+          <img src="${url}" alt="縮圖 ${index + 1}">
+        </div>
+      `).join('');
+    }
+
+    // 點擊縮圖切換主圖
+    function switchMainImage(url, element) {
+      const mainImg = document.getElementById('main-display-img');
+      if (mainImg) {
+        mainImg.src = url;
+      }
+
+      document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // 右側 Box 人數加減與總價計算
+    function updateCount(delta) {
+      currentTicketCount += delta;
+      if (currentTicketCount < 1) currentTicketCount = 1;
+
+      const countEl = document.getElementById('ticket-count');
+      const totalPriceEl = document.getElementById('total-price-val');
+
+      if (countEl) countEl.innerText = currentTicketCount;
+      if (totalPriceEl) {
+        const totalPrice = currentTicketCount * currentUnitPrice;
+        totalPriceEl.innerText = totalPrice.toLocaleString();
+      }
+    }
+
+    // 頁面載入時初始化渲染
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProductDetail();
+
+      // Nav 滾動變色效果
+      const headerEl = document.getElementById('main-header');
+      if (headerEl) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 40) {
+            headerEl.classList.add('scrolled');
+          } else {
+            headerEl.classList.remove('scrolled');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

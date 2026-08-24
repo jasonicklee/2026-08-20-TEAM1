@@ -14,7 +14,8 @@
 ├── index.html          ← 07
 ├── about.html          ← 07
 ├── products.html       ← 瑄
-├── ...（其餘 6 頁，自行加入）
+├── products-details    ← 瑄
+├──...（其餘 5 頁，自行加入）
 ├── css/
 │   ├── reset.css       ★ 共用，清掉瀏覽器預設
 │   ├── variables.css   ★ 共用，色票字級間距
