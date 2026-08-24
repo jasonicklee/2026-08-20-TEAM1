@@ -1,406 +1,328 @@
 <!doctype html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./css/pages/index.css" />
-    <title>島嶼旅跡 — 探索台灣在地體驗</title>
-  </head>
-  <body>
-    <header class="overlay-header">
-      <nav class="py-20">
-        <div class="container">
-          <div class="d-flex justify-between align-center">
-            <h1 class="h4 align-center text-white">
-              <a href="index.html">島嶼旅跡<span class="ml-10 text-red">·</span></a>
-            </h1>
-            <div class="d-flex align-center nav-bar">
-              <div class="mr-12">
-                <div class="h6 text-white font-family-serif">
-                  <ul class="d-flex g-12">
-                    <li><a href="index.html" class="nav-link">探索體驗</a></li>
-                    <li><a href="about.html" class="nav-link">關於我們</a></li>
-                    <li><a href="#" class="nav-link">常見問題</a></li>
-                    <li><a href="#" class="nav-link">我的訂單</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="font-family-serif nav-btn">
-                <a href="#" class="btn btn-orange">登入/註冊</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
 
-    <main>
-      <!-- ① hero：主視覺 + 搜尋列 -->
-      <section class="hero">
-        <div class="container">
-          <p class="eyebrow">TAIWAN EXPERIENCES</p>
-          <h2>與台灣這片土地，<br /><span>真實相遇</span></h2>
-          <p class="hero-desc">
-            超過 200 個在地嚮導帶路的深度體驗，從山頂到海岸，從廚房到工坊，找到屬於你的那一場旅途。
-          </p>
-          <div class="hero-search" role="search">
-            <select class="hero-search-input" aria-label="選擇目的地">
-              <option>📍 選擇目的地</option>
-              <option>台北</option>
-              <option>新北</option>
-              <option>台中</option>
-              <option>台南</option>
-              <option>高雄</option>
-              <option>花蓮</option>
-              <option>宜蘭</option>
-              <option>嘉義</option>
-            </select>
-            <input
-              class="hero-search-input"
-              type="date"
-              value="2026-08-21"
-              aria-label="選擇日期"
-            />
-            <button type="button" class="btn btn-orange">搜尋體驗</button>
-          </div>
-        </div>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/pages/index.css" />
+  <title>島嶼旅跡 — 探索台灣在地體驗</title>
+</head>
 
-      <!-- ② stats：數據列 -->
-      <section class="stats">
-        <div class="container">
-          <div class="stats-list">
-            <div class="stat">
-              <p class="stat-value">200<span>+</span></p>
-              <p class="stat-label">精選在地體驗</p>
-            </div>
-            <div class="stat">
-              <p class="stat-value">98<span>%</span></p>
-              <p class="stat-label">旅客好評率</p>
-            </div>
-            <div class="stat">
-              <p class="stat-value">150<span>+</span></p>
-              <p class="stat-label">認證在地嚮導</p>
-            </div>
-            <div class="stat">
-              <p class="stat-value">22</p>
-              <p class="stat-label">縣市全台覆蓋</p>
-            </div>
-          </div>
-        </div>
-      </section>
+<body>
+  <!-- Header 掛載點 -->
+  <header id="main-header" class="overlay-header"></header>
 
-      <!-- ③ themes：體驗類型（8 個 icon 卡） -->
-      <section class="themes">
-        <div class="container">
-          <p class="eyebrow">EXPLORE BY THEME</p>
-          <h2>找到你的體驗類型</h2>
-          <div class="theme-list">
-            <a class="theme-card" href="#">
-              <span class="theme-icon">🏔️</span><span class="theme-name">戶外冒險</span>
-            </a>
-            <a class="theme-card" href="#">
-              <span class="theme-icon">🎨</span><span class="theme-name">手作工藝</span>
-            </a>
-            <a class="theme-card" href="#">
-              <span class="theme-icon">🍜</span><span class="theme-name">美食料理</span>
-            </a>
-            <a class="theme-card" href="#">
-              <span class="theme-icon">🏛️</span><span class="theme-name">文化歷史</span>
-            </a>
-            <a class="theme-card" href="#">
-              <span class="theme-icon">🛶</span><span class="theme-name">水上活動</span>
-            </a>
-            <a class="theme-card" href="#">
-              <span class="theme-icon">🌾</span><span class="theme-name">農村生活</span>
-            </a>
-            <a class="theme-card" href="#">
-              <span class="theme-icon">🎭</span><span class="theme-name">傳統藝術</span>
-            </a>
-            <a class="theme-card" href="#">
-              <span class="theme-icon">📷</span><span class="theme-name">攝影旅拍</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ④ hot：本週熱門體驗（8 張體驗卡）
-           之後可改 JS 動態產生，見 README 第九節 -->
-      <section class="hot">
-        <div class="container">
-          <div class="hot-head">
-            <div>
-              <p class="eyebrow">HOT THIS WEEK</p>
-              <h2>本週熱門體驗</h2>
-            </div>
-            <a href="#" class="btn btn-outline">查看全部 →</a>
-          </div>
-          <div class="exp-list" id="hotGrid">
-            <article class="exp-card">
-              <div class="exp-card-media">
-                <img src="https://picsum.photos/seed/exp1/400/300" alt="清水斷崖獨木舟探險" />
-                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-              </div>
-              <div class="exp-card-body">
-                <span class="tag">戶外冒險</span>
-                <h3 class="exp-card-title">清水斷崖獨木舟探險</h3>
-                <p class="exp-card-meta">📍 花蓮 · 半天</p>
-                <div class="exp-card-foot">
-                  <p class="exp-card-price">NT$ 1,800 <span>/人 起</span></p>
-                  <p class="exp-card-rating">★★★★★ <span>(312)</span></p>
-                </div>
-              </div>
-            </article>
-
-            <article class="exp-card">
-              <div class="exp-card-media">
-                <img src="https://picsum.photos/seed/exp2/400/300" alt="九份老街手捏陶藝體驗" />
-                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-              </div>
-              <div class="exp-card-body">
-                <span class="tag">手作工藝</span>
-                <h3 class="exp-card-title">九份老街手捏陶藝體驗</h3>
-                <p class="exp-card-meta">📍 新北 · 3 小時</p>
-                <div class="exp-card-foot">
-                  <p class="exp-card-price">NT$ 980 <span>/人 起</span></p>
-                  <p class="exp-card-rating">★★★★★ <span>(205)</span></p>
-                </div>
-              </div>
-            </article>
-
-            <article class="exp-card">
-              <div class="exp-card-media">
-                <img src="https://picsum.photos/seed/exp3/400/300" alt="台中市場私廚料理課" />
-                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-              </div>
-              <div class="exp-card-body">
-                <span class="tag">美食料理</span>
-                <h3 class="exp-card-title">台中市場私廚料理課</h3>
-                <p class="exp-card-meta">📍 台中 · 4 小時</p>
-                <div class="exp-card-foot">
-                  <p class="exp-card-price">NT$ 1,500 <span>/人 起</span></p>
-                  <p class="exp-card-rating">★★★★★ <span>(189)</span></p>
-                </div>
-              </div>
-            </article>
-
-            <article class="exp-card">
-              <div class="exp-card-media">
-                <img src="https://picsum.photos/seed/exp4/400/300" alt="阿里山日出觀星嚮導" />
-                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-              </div>
-              <div class="exp-card-body">
-                <span class="tag">自然探索</span>
-                <h3 class="exp-card-title">阿里山日出觀星嚮導</h3>
-                <p class="exp-card-meta">📍 嘉義 · 全天</p>
-                <div class="exp-card-foot">
-                  <p class="exp-card-price">NT$ 2,200 <span>/人 起</span></p>
-                  <p class="exp-card-rating">★★★★★ <span>(98)</span></p>
-                </div>
-              </div>
-            </article>
-
-            <article class="exp-card">
-              <div class="exp-card-media">
-                <img src="https://picsum.photos/seed/exp5/400/300" alt="淡水老街藍染拼布工作坊" />
-                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-              </div>
-              <div class="exp-card-body">
-                <span class="tag">手作工藝</span>
-                <h3 class="exp-card-title">淡水老街藍染拼布工作坊</h3>
-                <p class="exp-card-meta">📍 新北 · 3 小時</p>
-                <div class="exp-card-foot">
-                  <p class="exp-card-price">NT$ 1,200 <span>/人 起</span></p>
-                  <p class="exp-card-rating">★★★★☆ <span>(147)</span></p>
-                </div>
-              </div>
-            </article>
-
-            <article class="exp-card">
-              <div class="exp-card-media">
-                <img src="https://picsum.photos/seed/exp6/400/300" alt="台南府城古蹟深度導覽" />
-                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-              </div>
-              <div class="exp-card-body">
-                <span class="tag">文化歷史</span>
-                <h3 class="exp-card-title">台南府城古蹟深度導覽</h3>
-                <p class="exp-card-meta">📍 台南 · 半天</p>
-                <div class="exp-card-foot">
-                  <p class="exp-card-price">NT$ 800 <span>/人 起</span></p>
-                  <p class="exp-card-rating">★★★★★ <span>(261)</span></p>
-                </div>
-              </div>
-            </article>
-
-            <article class="exp-card">
-              <div class="exp-card-media">
-                <img src="https://picsum.photos/seed/exp7/400/300" alt="宜蘭稻田生態農遊體驗" />
-                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-              </div>
-              <div class="exp-card-body">
-                <span class="tag">自然探索</span>
-                <h3 class="exp-card-title">宜蘭稻田生態農遊體驗</h3>
-                <p class="exp-card-meta">📍 宜蘭 · 半天</p>
-                <div class="exp-card-foot">
-                  <p class="exp-card-price">NT$ 1,100 <span>/人 起</span></p>
-                  <p class="exp-card-rating">★★★★★ <span>(173)</span></p>
-                </div>
-              </div>
-            </article>
-
-            <article class="exp-card">
-              <div class="exp-card-media">
-                <img src="https://picsum.photos/seed/exp8/400/300" alt="高雄旗津老漁村料理日" />
-                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-              </div>
-              <div class="exp-card-body">
-                <span class="tag">美食料理</span>
-                <h3 class="exp-card-title">高雄旗津老漁村料理日</h3>
-                <p class="exp-card-meta">📍 高雄 · 4 小時</p>
-                <div class="exp-card-foot">
-                  <p class="exp-card-price">NT$ 1,350 <span>/人 起</span></p>
-                  <p class="exp-card-rating">★★★★★ <span>(142)</span></p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ⑤ guide-cta：成為在地嚮導 -->
-      <section class="guide-cta">
-        <div class="container guide-cta-inner">
-          <div class="guide-cta-text">
-            <h2>成為在地嚮導，<br />分享你的台灣故事</h2>
-            <p>
-              你是本地達人嗎？無論是山林秘徑、漁村廚藝還是傳統技藝，都可以化為獨一無二的體驗，與來自世界各地的旅人分享。
-            </p>
-          </div>
-          <div class="guide-cta-actions">
-            <a href="#" class="btn btn-orange">立即申請嚮導</a>
-            <a href="#" class="btn btn-ghost">了解更多</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ⑥ reviews：旅人的真實心聲（3 張評價卡） -->
-      <section class="reviews">
-        <div class="container">
-          <p class="eyebrow">TRAVELER REVIEWS</p>
-          <h2>旅人的真實心聲</h2>
-          <div class="review-list">
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
-              <p class="review-text">
-                「清水斷崖的獨木舟體驗真的終生難忘，嚮導非常專業、安全又刺激。這是我在台灣最棒的一天！」
-              </p>
-              <div class="review-author">
-                <img src="https://picsum.photos/seed/user1/80/80" alt="陳佳穎的頭像" />
-                <div>
-                  <p class="review-name">陳佳穎</p>
-                  <p class="review-from">來自台北 · 2025.03</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
-              <p class="review-text">
-                「台南古蹟導覽讓我對這座城市有了全新的認識，嚮導的故事講解生動有趣。強烈推薦給每一位旅人！」
-              </p>
-              <div class="review-author">
-                <img src="https://picsum.photos/seed/user2/80/80" alt="林大偉的頭像" />
-                <div>
-                  <p class="review-name">林大偉</p>
-                  <p class="review-from">來自高雄 · 2025.04</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="review-card">
-              <p class="review-stars">★★★★☆</p>
-              <p class="review-text">
-                「九份的陶藝體驗非常療癒，老師耐心指導，做出了自己的第一個茶杯，會帶著這份記憶回家。」
-              </p>
-              <div class="review-author">
-                <img src="https://picsum.photos/seed/user3/80/80" alt="山田あかり的頭像" />
-                <div>
-                  <p class="review-name">山田あかり</p>
-                  <p class="review-from">來自日本 · 2025.05</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
+  <main>
+    <!-- ① hero：主視覺 + 搜尋列 -->
+    <section class="hero">
       <div class="container">
-        <div class="footer-section">
-          <div>
-            <h4 class="h4 mb-10 text-white">
-              島嶼旅跡<span class="text-red">·</span>
-            </h4>
-            <div class="h6 text-grey">
-              <p>深入台灣每一條小徑，</p>
-              <p>遇見最在地的感動體驗。</p>
-              <p>我們相信，旅行不只是到達目的地，</p>
-              <p>而是與這片土地真實相遇。</p>
-            </div>
-          </div>
-
-          <div class="footer-link font-family-serif">
-            <div class="text-white">
-              <h6 class="h6 mb-16">探索</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">所有體驗</a></li>
-                <li><a href="">戶外冒險</a></li>
-                <li><a href="">手作工藝</a></li>
-                <li><a href="">美食料理</a></li>
-                <li><a href="">文化歷史</a></li>
-              </ul>
-            </div>
-            <div class="text-white">
-              <h6 class="h6 mb-16">公司</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">關於我們</a></li>
-                <li><a href="">常見問題</a></li>
-                <li><a href="">旅遊嚮導招募</a></li>
-                <li><a href="">媒體合作</a></li>
-              </ul>
-            </div>
-            <div class="text-white">
-              <h6 class="h6 mb-16">支援</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">退款政策</a></li>
-                <li><a href="">隱私政策</a></li>
-                <li><a href="">服務條款</a></li>
-                <li><a href="">查看訂單</a></li>
-              </ul>
-            </div>
-          </div>
+        <p class="eyebrow">TAIWAN EXPERIENCES</p>
+        <h2>與台灣這片土地，<br /><span>真實相遇</span></h2>
+        <p class="hero-desc">
+          超過 200 個在地嚮導帶路的深度體驗，從山頂到海岸，從廚房到工坊，找到屬於你的那一場旅途。
+        </p>
+        <div class="hero-search" role="search">
+          <select class="hero-search-input" aria-label="選擇目的地">
+            <option>📍 選擇目的地</option>
+            <option>台北</option>
+            <option>新北</option>
+            <option>台中</option>
+            <option>台南</option>
+            <option>高雄</option>
+            <option>花蓮</option>
+            <option>宜蘭</option>
+            <option>嘉義</option>
+          </select>
+          <input class="hero-search-input" type="date" value="2026-08-21" aria-label="選擇日期" />
+          <button type="button" class="btn btn-orange">搜尋體驗</button>
         </div>
-        <div
-          class="h6 text-grey border-top footer-text font-family-serif py-16"
-        >
-          <div class="d-flex justify-between">
-            <p>© 2025 島嶼旅跡 IslandTrace. All rights reserved.</p>
-            <p>用心丈量台灣每一寸土地</p>
+      </div>
+    </section>
+
+    <!-- ② stats：數據列 -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-list">
+          <div class="stat">
+            <p class="stat-value">200<span>+</span></p>
+            <p class="stat-label">精選在地體驗</p>
+          </div>
+          <div class="stat">
+            <p class="stat-value">98<span>%</span></p>
+            <p class="stat-label">旅客好評率</p>
+          </div>
+          <div class="stat">
+            <p class="stat-value">150<span>+</span></p>
+            <p class="stat-label">認證在地嚮導</p>
+          </div>
+          <div class="stat">
+            <p class="stat-value">22</p>
+            <p class="stat-label">縣市全台覆蓋</p>
           </div>
         </div>
       </div>
-    </footer>
-    <script>
-      // 捲動超過 60px 就讓導覽列變實心（貼近原版：hero 上透明、往下捲變深藍）
-      const siteHeader = document.querySelector(".overlay-header");
-      const onScroll = () => {
-        siteHeader.classList.toggle("is-scrolled", window.scrollY > 60);
-      };
-      window.addEventListener("scroll", onScroll);
-      onScroll(); // 重整時若已在捲動位置，先套用一次
-    </script>
-  </body>
-</html>
+    </section>
 
+    <!-- ③ themes：體驗類型（8 個 icon 卡） -->
+    <section class="themes">
+      <div class="container">
+        <p class="eyebrow">EXPLORE BY THEME</p>
+        <h2>找到你的體驗類型</h2>
+        <div class="theme-list">
+          <a class="theme-card" href="#">
+            <span class="theme-icon">🏔️</span><span class="theme-name">戶外冒險</span>
+          </a>
+          <a class="theme-card" href="#">
+            <span class="theme-icon">🎨</span><span class="theme-name">手作工藝</span>
+          </a>
+          <a class="theme-card" href="#">
+            <span class="theme-icon">🍜</span><span class="theme-name">美食料理</span>
+          </a>
+          <a class="theme-card" href="#">
+            <span class="theme-icon">🏛️</span><span class="theme-name">文化歷史</span>
+          </a>
+          <a class="theme-card" href="#">
+            <span class="theme-icon">🛶</span><span class="theme-name">水上活動</span>
+          </a>
+          <a class="theme-card" href="#">
+            <span class="theme-icon">🌾</span><span class="theme-name">農村生活</span>
+          </a>
+          <a class="theme-card" href="#">
+            <span class="theme-icon">🎭</span><span class="theme-name">傳統藝術</span>
+          </a>
+          <a class="theme-card" href="#">
+            <span class="theme-icon">📷</span><span class="theme-name">攝影旅拍</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ hot：本週熱門體驗（8 張體驗卡）
+           之後可改 JS 動態產生，見 README 第九節 -->
+    <section class="hot">
+      <div class="container">
+        <div class="hot-head">
+          <div>
+            <p class="eyebrow">HOT THIS WEEK</p>
+            <h2>本週熱門體驗</h2>
+          </div>
+          <a href="#" class="btn btn-outline">查看全部 →</a>
+        </div>
+        <div class="exp-list" id="hotGrid">
+          <article class="exp-card">
+            <div class="exp-card-media">
+              <img src="https://picsum.photos/seed/exp1/400/300" alt="清水斷崖獨木舟探險" />
+              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+            </div>
+            <div class="exp-card-body">
+              <span class="tag">戶外冒險</span>
+              <h3 class="exp-card-title">清水斷崖獨木舟探險</h3>
+              <p class="exp-card-meta">📍 花蓮 · 半天</p>
+              <div class="exp-card-foot">
+                <p class="exp-card-price">NT$ 1,800 <span>/人 起</span></p>
+                <p class="exp-card-rating">★★★★★ <span>(312)</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-card-media">
+              <img src="https://picsum.photos/seed/exp2/400/300" alt="九份老街手捏陶藝體驗" />
+              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+            </div>
+            <div class="exp-card-body">
+              <span class="tag">手作工藝</span>
+              <h3 class="exp-card-title">九份老街手捏陶藝體驗</h3>
+              <p class="exp-card-meta">📍 新北 · 3 小時</p>
+              <div class="exp-card-foot">
+                <p class="exp-card-price">NT$ 980 <span>/人 起</span></p>
+                <p class="exp-card-rating">★★★★★ <span>(205)</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-card-media">
+              <img src="https://picsum.photos/seed/exp3/400/300" alt="台中市場私廚料理課" />
+              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+            </div>
+            <div class="exp-card-body">
+              <span class="tag">美食料理</span>
+              <h3 class="exp-card-title">台中市場私廚料理課</h3>
+              <p class="exp-card-meta">📍 台中 · 4 小時</p>
+              <div class="exp-card-foot">
+                <p class="exp-card-price">NT$ 1,500 <span>/人 起</span></p>
+                <p class="exp-card-rating">★★★★★ <span>(189)</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-card-media">
+              <img src="https://picsum.photos/seed/exp4/400/300" alt="阿里山日出觀星嚮導" />
+              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+            </div>
+            <div class="exp-card-body">
+              <span class="tag">自然探索</span>
+              <h3 class="exp-card-title">阿里山日出觀星嚮導</h3>
+              <p class="exp-card-meta">📍 嘉義 · 全天</p>
+              <div class="exp-card-foot">
+                <p class="exp-card-price">NT$ 2,200 <span>/人 起</span></p>
+                <p class="exp-card-rating">★★★★★ <span>(98)</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-card-media">
+              <img src="https://picsum.photos/seed/exp5/400/300" alt="淡水老街藍染拼布工作坊" />
+              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+            </div>
+            <div class="exp-card-body">
+              <span class="tag">手作工藝</span>
+              <h3 class="exp-card-title">淡水老街藍染拼布工作坊</h3>
+              <p class="exp-card-meta">📍 新北 · 3 小時</p>
+              <div class="exp-card-foot">
+                <p class="exp-card-price">NT$ 1,200 <span>/人 起</span></p>
+                <p class="exp-card-rating">★★★★☆ <span>(147)</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-card-media">
+              <img src="https://picsum.photos/seed/exp6/400/300" alt="台南府城古蹟深度導覽" />
+              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+            </div>
+            <div class="exp-card-body">
+              <span class="tag">文化歷史</span>
+              <h3 class="exp-card-title">台南府城古蹟深度導覽</h3>
+              <p class="exp-card-meta">📍 台南 · 半天</p>
+              <div class="exp-card-foot">
+                <p class="exp-card-price">NT$ 800 <span>/人 起</span></p>
+                <p class="exp-card-rating">★★★★★ <span>(261)</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-card-media">
+              <img src="https://picsum.photos/seed/exp7/400/300" alt="宜蘭稻田生態農遊體驗" />
+              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+            </div>
+            <div class="exp-card-body">
+              <span class="tag">自然探索</span>
+              <h3 class="exp-card-title">宜蘭稻田生態農遊體驗</h3>
+              <p class="exp-card-meta">📍 宜蘭 · 半天</p>
+              <div class="exp-card-foot">
+                <p class="exp-card-price">NT$ 1,100 <span>/人 起</span></p>
+                <p class="exp-card-rating">★★★★★ <span>(173)</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-card-media">
+              <img src="https://picsum.photos/seed/exp8/400/300" alt="高雄旗津老漁村料理日" />
+              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+            </div>
+            <div class="exp-card-body">
+              <span class="tag">美食料理</span>
+              <h3 class="exp-card-title">高雄旗津老漁村料理日</h3>
+              <p class="exp-card-meta">📍 高雄 · 4 小時</p>
+              <div class="exp-card-foot">
+                <p class="exp-card-price">NT$ 1,350 <span>/人 起</span></p>
+                <p class="exp-card-rating">★★★★★ <span>(142)</span></p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ guide-cta：成為在地嚮導 -->
+    <section class="guide-cta">
+      <div class="container guide-cta-inner">
+        <div class="guide-cta-text">
+          <h2>成為在地嚮導，<br />分享你的台灣故事</h2>
+          <p>
+            你是本地達人嗎？無論是山林秘徑、漁村廚藝還是傳統技藝，都可以化為獨一無二的體驗，與來自世界各地的旅人分享。
+          </p>
+        </div>
+        <div class="guide-cta-actions">
+          <a href="#" class="btn btn-orange">立即申請嚮導</a>
+          <a href="#" class="btn btn-ghost">了解更多</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑥ reviews：旅人的真實心聲（3 張評價卡） -->
+    <section class="reviews">
+      <div class="container">
+        <p class="eyebrow">TRAVELER REVIEWS</p>
+        <h2>旅人的真實心聲</h2>
+        <div class="review-list">
+          <article class="review-card">
+            <p class="review-stars">★★★★★</p>
+            <p class="review-text">
+              「清水斷崖的獨木舟體驗真的終生難忘，嚮導非常專業、安全又刺激。這是我在台灣最棒的一天！」
+            </p>
+            <div class="review-author">
+              <img src="https://picsum.photos/seed/user1/80/80" alt="陳佳穎的頭像" />
+              <div>
+                <p class="review-name">陳佳穎</p>
+                <p class="review-from">來自台北 · 2025.03</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <p class="review-stars">★★★★★</p>
+            <p class="review-text">
+              「台南古蹟導覽讓我對這座城市有了全新的認識，嚮導的故事講解生動有趣。強烈推薦給每一位旅人！」
+            </p>
+            <div class="review-author">
+              <img src="https://picsum.photos/seed/user2/80/80" alt="林大偉的頭像" />
+              <div>
+                <p class="review-name">林大偉</p>
+                <p class="review-from">來自高雄 · 2025.04</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <p class="review-stars">★★★★☆</p>
+            <p class="review-text">
+              「九份的陶藝體驗非常療癒，老師耐心指導，做出了自己的第一個茶杯，會帶著這份記憶回家。」
+            </p>
+            <div class="review-author">
+              <img src="https://picsum.photos/seed/user3/80/80" alt="山田あかり的頭像" />
+              <div>
+                <p class="review-name">山田あかり</p>
+                <p class="review-from">來自日本 · 2025.05</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer 掛載點 -->
+  <footer id="footer-container"></footer>
+
+  <!-- 引入 Nav 設定檔腳本 -->
+  <script src="./js/nav-config.js"></script>
+  <script>
+    // 捲動超過 60px 就讓導覽列變實心（貼近原版：hero 上透明、往下捲變深藍）
+    const siteHeader = document.querySelector(".overlay-header");
+    const onScroll = () => {
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 60);
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // 重整時若已在捲動位置，先套用一次
+  </script>
+</body>
+
+</html>

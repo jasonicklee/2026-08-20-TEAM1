@@ -1,306 +1,168 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css"
-    />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./css/pages/booking.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Document</title>
-    <style>
-      @media (max-width: 768px) {
-        .nav-bar {
-          display: none;
-        }
-      }
-      .nav-btn a:hover {
-        transition: opacity 0.3s ease;
-        background-color: rgb(248, 185, 69);
-      }
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/pages/booking.css" />
 
-      .nav-link {
-        position: relative;
-      }
+  <title>Document</title>
+</head>
 
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: var(--primary-orange);
-        transition: width 0.3s ease;
-      }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      .footer-section {
-        display: grid;
-        grid-template-columns: 2fr 3fr;
-        column-gap: 48px;
-        padding: 48px 0;
-      }
-
-      .footer-link {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 3em;
-      }
-
-      @media (max-width: 768px) {
-        .footer-link {
-          grid-template-columns: 2fr 2fr;
-        }
-      }
-
-      .footer-nav {
-        display: grid;
-        gap: 8px;
-      }
-
-      .footer-nav a:hover {
-        color: var(--primary-orange);
-      }
-
-      .footer.text {
-        border-top: 1px solid var(--primary-grey);
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <nav class="py-20">
-        <div class="container">
-          <div class="d-flex justify-between align-center">
-            <h1 class="h4 align-center text-white">
-              <a href="#">島嶼旅跡<span class="ml-10 text-red">·</span></a>
-            </h1>
-            <div class="d-flex align-center nav-bar">
-              <div class="mr-12">
-                <div class="h6 text-white font-family-serif">
-                  <ul class="d-flex g-12">
-                    <li><a href="#" class="nav-link">探索體驗</a></li>
-                    <li><a href="#" class="nav-link">關於我們</a></li>
-                    <li><a href="#" class="nav-link">常見問題</a></li>
-                    <li><a href="#" class="nav-link">我的訂單</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="font-family-serif nav-btn">
-                <a href="#" class="btn btn-orange">登入/註冊</a>
-              </div>
-            </div>
-          </div>
+<body>
+  <!-- Header 掛載點 -->
+  <header id="main-header"></header>
+  <main>
+    <div class="stepper">
+      <div class="step-item active">
+        <div class="step-top">
+          <div class="step-circle">1</div>
+          <div class="step-line"></div>
         </div>
-      </nav>
-    </header>
-    <main>
-      <div class="stepper">
-        <div class="step-item active">
-          <div class="step-top">
-            <div class="step-circle">1</div>
-            <div class="step-line"></div>
-          </div>
-          <p class="step-text">選擇日期</p>
-        </div>
-
-        <div class="step-item">
-          <div class="step-top">
-            <div class="step-circle">2</div>
-            <div class="step-line"></div>
-          </div>
-          <p class="step-text">填寫資料</p>
-        </div>
-
-        <div class="step-item">
-          <div class="step-top">
-            <div class="step-circle">3</div>
-          </div>
-          <p class="step-text">預訂完成</p>
-        </div>
+        <p class="step-text">選擇日期</p>
       </div>
 
-      <div class="booking-layout">
-        <!-- 左邊 -->
-        <div class="booking-left">
-          <div class="calendar-card">
-            <div class="h6 text-blue font-family-serif">日期選擇</div>
-            <div id="calendar"></div>
-          </div>
+      <div class="step-item">
+        <div class="step-top">
+          <div class="step-circle">2</div>
+          <div class="step-line"></div>
+        </div>
+        <p class="step-text">填寫資料</p>
+      </div>
 
-          <div class="session-card">
-            <h6 class="h6 text-blue font-family-serif">選擇場次</h6>
+      <div class="step-item">
+        <div class="step-top">
+          <div class="step-circle">3</div>
+        </div>
+        <p class="step-text">預訂完成</p>
+      </div>
+    </div>
 
-            <div class="session-list">
-              <button type="button" class="btn-item">
-                09:00<br />
-                <span class="font-family-serif">🌅 上午場</span>
-              </button>
-              <button type="button" class="btn-item">
-                14:00<br />
-                <span class="font-family-serif">🌅 下午場</span>
-              </button>
-            </div>
-            <button type="button" class="btn btn-orange text-white w-100">
-              下一步：填寫旅客資料 →
+    <div class="booking-layout">
+      <!-- 左邊 -->
+      <div class="booking-left">
+        <div class="calendar-card">
+          <div class="h6 text-blue font-family-serif">日期選擇</div>
+          <div id="calendar"></div>
+        </div>
+
+        <div class="session-card">
+          <h6 class="h6 text-blue font-family-serif">選擇場次</h6>
+
+          <div class="session-list">
+            <button type="button" class="btn-item">
+              09:00<br />
+              <span class="font-family-serif">🌅 上午場</span>
+            </button>
+            <button type="button" class="btn-item">
+              14:00<br />
+              <span class="font-family-serif">🌅 下午場</span>
             </button>
           </div>
-        </div>
-
-        <!-- 右邊 -->
-        <div class="session-card summary-card">
-          <p class="h6 text-blue font-family-serif mb-10">預訂摘要</p>
-          <img src="https://picsum.photos/600/200" alt="" />
-          <p class="h6 text-blue font-family-serif">清水斷崖獨木舟探險</p>
-          <table class="summary-table">
-            <tbody>
-              <tr>
-                <th>目的地</th>
-                <td>花蓮</td>
-              </tr>
-
-              <tr>
-                <th>時間長度</th>
-                <td>半天</td>
-              </tr>
-
-              <tr>
-                <th>選擇日期</th>
-                <td class="text-orange">尚未選擇</td>
-              </tr>
-
-              <tr>
-                <th>選擇場次</th>
-                <td class="text-orange">尚未選擇</td>
-              </tr>
-
-              <tr class="price-row">
-                <th>價格</th>
-                <td class="price">NT$ 1,800 / 人</td>
-              </tr>
-            </tbody>
-          </table>
+          <button type="button" class="btn btn-orange text-white w-100">
+            下一步：填寫旅客資料 →
+          </button>
         </div>
       </div>
-    </main>
-    <footer>
-      <div class="container">
-        <div class="footer-section">
-          <div>
-            <h4 class="h4 mb-10 text-white">
-              島嶼旅跡<span class="text-red">·</span>
-            </h4>
-            <div class="h6 text-grey">
-              <p>深入台灣每一條小徑，</p>
-              <p>遇見最在地的感動體驗。</p>
-              <p>我們相信，旅行不只是到達目的地，</p>
-              <p>而是與這片土地真實相遇。</p>
-            </div>
-          </div>
 
-          <div class="footer-link font-family-serif">
-            <div class="text-white">
-              <h6 class="h6 mb-16">探索</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">所有體驗</a></li>
-                <li><a href="">戶外冒險</a></li>
-                <li><a href="">手作工藝</a></li>
-                <li><a href="">美食料理</a></li>
-                <li><a href="">文化歷史</a></li>
-              </ul>
-            </div>
-            <div class="text-white">
-              <h6 class="h6 mb-16">公司</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">關於我們</a></li>
-                <li><a href="">常見問題</a></li>
-                <li><a href="">旅遊嚮導招募</a></li>
-                <li><a href="">媒體合作</a></li>
-              </ul>
-            </div>
-            <div class="text-white">
-              <h6 class="h6 mb-16">支援</h6>
-              <ul class="text-grey footer-nav">
-                <li><a href="">退款政策</a></li>
-                <li><a href="">隱私政策</a></li>
-                <li><a href="">服務條款</a></li>
-                <li><a href="">查看訂單</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div
-          class="h6 text-grey border-top footer-text font-family-serif py-16"
-        >
-          <div class="d-flex justify-between">
-            <p>© 2025 島嶼旅跡 IslandTrace. All rights reserved.</p>
-            <p>用心丈量台灣每一寸土地</p>
-          </div>
-        </div>
+      <!-- 右邊 -->
+      <div class="session-card summary-card">
+        <p class="h6 text-blue font-family-serif mb-10">預訂摘要</p>
+        <img src="https://picsum.photos/600/200" alt="" />
+        <p class="h6 text-blue font-family-serif">清水斷崖獨木舟探險</p>
+        <table class="summary-table">
+          <tbody>
+            <tr>
+              <th>目的地</th>
+              <td>花蓮</td>
+            </tr>
+
+            <tr>
+              <th>時間長度</th>
+              <td>半天</td>
+            </tr>
+
+            <tr>
+              <th>選擇日期</th>
+              <td class="text-orange">尚未選擇</td>
+            </tr>
+
+            <tr>
+              <th>選擇場次</th>
+              <td class="text-orange">尚未選擇</td>
+            </tr>
+
+            <tr class="price-row">
+              <th>價格</th>
+              <td class="price">NT$ 1,800 / 人</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
-    <script>
-      const localeZhTw = {
-        days: [
-          "星期日",
-          "星期一",
-          "星期二",
-          "星期三",
-          "星期四",
-          "星期五",
-          "星期六",
-        ],
-        daysShort: ["日", "一", "二", "三", "四", "五", "六"],
-        daysMin: ["日", "一", "二", "三", "四", "五", "六"],
-        months: [
-          "一月",
-          "二月",
-          "三月",
-          "四月",
-          "五月",
-          "六月",
-          "七月",
-          "八月",
-          "九月",
-          "十月",
-          "十一月",
-          "十二月",
-        ],
-        monthsShort: [
-          "一月",
-          "二月",
-          "三月",
-          "四月",
-          "五月",
-          "六月",
-          "七月",
-          "八月",
-          "九月",
-          "十月",
-          "十一月",
-          "十二月",
-        ],
-        today: "今天",
-        clear: "清除",
-        dateFormat: "yyyy/MM/dd",
-        firstDay: 0,
-      };
-      new AirDatepicker("#calendar", {
-        inline: true,
-        startDate: new Date(2026, 7, 23),
-        locale: localeZhTw,
-      });
-    </script>
-  </body>
+    </div>
+  </main>
+  <!-- Footer 掛載點 -->
+  <footer id="footer-container"></footer>
+
+  <!-- 引入 Nav 設定檔腳本 -->
+  <script src="./js/nav-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
+  <script>
+    const localeZhTw = {
+      days: [
+        "星期日",
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六",
+      ],
+      daysShort: ["日", "一", "二", "三", "四", "五", "六"],
+      daysMin: ["日", "一", "二", "三", "四", "五", "六"],
+      months: [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月",
+      ],
+      monthsShort: [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月",
+      ],
+      today: "今天",
+      clear: "清除",
+      dateFormat: "yyyy/MM/dd",
+      firstDay: 0,
+    };
+    new AirDatepicker("#calendar", {
+      inline: true,
+      startDate: new Date(2026, 7, 23),
+      locale: localeZhTw,
+    });
+  </script>
+</body>
+
 </html>
