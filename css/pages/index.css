@@ -1,0 +1,480 @@
+/* index.html 頁面樣式（從 HTML <style> 搬出，維持載入順序 reset → base → 本檔） */
+
+@media (max-width: 768px) {
+  .nav-bar {
+    display: none;
+  }
+}
+.nav-btn a:hover {
+  transition: opacity 0.3s ease;
+  background-color: rgb(248, 185, 69);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-orange);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.footer-section {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  column-gap: 48px;
+  padding: 48px 0;
+}
+
+.footer-link {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3em;
+}
+
+@media (max-width: 768px) {
+  .footer-link {
+    grid-template-columns: 2fr 2fr;
+  }
+}
+
+.footer-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.footer-nav a:hover {
+  color: var(--primary-orange);
+}
+
+.footer.text {
+  border-top: 1px solid var(--primary-grey);
+}
+
+/* =========================================================
+   index 首頁樣式
+   色票 / eyebrow 與 about 相同（先各自寫一份，之後可抽到
+   base.css 共用，動共用檔前先跟團隊講）
+   ========================================================= */
+:root {
+  --navy: #232a4d;
+  --accent: #e8613c;
+  --cream: #f4ede1;
+}
+
+/* ── 共用小元件：eyebrow ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+/* ── 按鈕變體（base.css 沒有，補在這） ── */
+.btn-outline {
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  background-color: transparent;
+  transition: all 0.25s ease; /* 有過渡，hover 變色才滑順 */
+}
+.btn-outline:hover {
+  background-color: var(--navy); /* 滑過填滿深藍，跟 nav 同色系 */
+  color: #fff;
+}
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  background-color: transparent;
+}
+
+/* index 專用：讓 header 透明浮在 hero 圖片上（about 與其他頁不受影響） */
+.overlay-header {
+  position: fixed; /* 固定在最上面 → 捲動時導覽列會一直跟著在頂端 */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* 蓋在所有內容之上 */
+}
+.overlay-header nav {
+  background-color: transparent; /* 一開始透明，浮在 hero 圖上 */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* 捲動後（JS 幫忙加上 .is-scrolled）→ 變實心深藍，貼近原版 */
+.overlay-header.is-scrolled nav {
+  background-color: var(--navy);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ── ① hero：主視覺 + 搜尋列 ── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 內容垂直置中 → 上方自然大量留白 */
+  min-height: 100vh; /* 版面放大到佔滿整個螢幕 */
+  padding: 120px 0 80px;
+  color: #fff;
+  /* 上深下淺的遮罩：頂部壓深讓白色 logo/選單清楚，中下段透出風景 */
+  background-image: linear-gradient(
+      to bottom,
+      rgba(18, 22, 45, 0.6),
+      rgba(18, 22, 45, 0.25)
+    ),
+    url("https://picsum.photos/seed/taiwan/1600/900");
+  background-size: cover;
+  background-position: center;
+}
+.hero h2 {
+  font-size: 60px; /* 標題加大 */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.hero h2 span {
+  color: var(--accent);
+}
+.hero-desc {
+  max-width: 520px;
+  margin-bottom: 32px;
+  line-height: 1.7;
+  color: #e8e8ef;
+}
+.hero-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 680px;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.hero-search-input {
+  flex: 1;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent; /* 拿掉灰底，跟原版一樣乾淨 */
+  font-size: 15px;
+  font-family: inherit;
+  color: #333;
+}
+.hero-search .btn {
+  white-space: nowrap;
+}
+
+/* ── ② stats：數據列 ── */
+.stats {
+  background-color: var(--cream);
+  padding: 40px 0;
+}
+.stats-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.stat-value span {
+  color: var(--accent); /* +、% 染橘，與 about 一致 */
+}
+.stat-label {
+  font-size: 14px;
+  color: #8a7f72;
+}
+
+/* ── ③ themes：體驗類型（8 卡） ── */
+.themes {
+  padding: 72px 0;
+}
+.themes h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 36px;
+}
+.theme-list {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 16px;
+}
+.theme-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.theme-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+.theme-icon {
+  font-size: 28px;
+}
+.theme-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* ── ④ hot：本週熱門體驗（8 卡） ── */
+.hot {
+  background-color: var(--cream);
+  padding: 72px 0;
+}
+.hot-head {
+  display: flex;
+  justify-content: space-between; /* 標題靠左、查看全部靠右 */
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.hot-head h2 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.exp-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.exp-card {
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.exp-card:hover {
+  transform: translateY(-8px); /* 往上飄 */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14); /* 影子加深，浮起來的感覺 */
+}
+.exp-card-media {
+  position: relative;
+}
+.exp-card-media img {
+  display: block;
+  width: 100%;
+  height: 230px; /* 從 180 加高 → 卡片變細長 */
+  object-fit: cover;
+}
+.exp-card-fav {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  cursor: pointer;
+}
+.exp-card-body {
+  padding: 16px;
+}
+.tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.exp-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+}
+.exp-card-meta {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 14px;
+}
+.exp-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.exp-card-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.exp-card-price span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888;
+}
+.exp-card-rating {
+  font-size: 13px;
+  color: #f5a623;
+}
+.exp-card-rating span {
+  color: #888;
+}
+
+/* ── ⑤ guide-cta：成為嚮導 ── */
+.guide-cta {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--navy);
+  color: #fff;
+  padding: 64px 0;
+}
+.guide-cta::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.guide-cta-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.guide-cta-text h2 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+.guide-cta-text p {
+  max-width: 520px;
+  line-height: 1.7;
+  color: #b9bdd4;
+}
+.guide-cta-actions {
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+/* ── ⑥ reviews：旅人心聲（3 卡） ── */
+.reviews {
+  padding: 72px 0;
+}
+.reviews h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 36px;
+}
+.review-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background-color: #faf7f2;
+  border-radius: 14px;
+  padding: 28px;
+}
+.review-stars {
+  margin-bottom: 14px;
+  color: #f5a623;
+  letter-spacing: 2px;
+}
+.review-text {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: #555;
+}
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.review-author img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.review-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+}
+.review-from {
+  font-size: 13px;
+  color: #888;
+}
+
+/* ── RWD：桌機優先，往小螢幕縮欄 ── */
+@media (max-width: 1024px) {
+  .theme-list {
+    grid-template-columns: repeat(4, 1fr); /* 8 → 4 */
+  }
+  .exp-list {
+    grid-template-columns: repeat(2, 1fr); /* 4 → 2 */
+  }
+  .review-list {
+    grid-template-columns: 1fr; /* 3 → 1 */
+  }
+  .guide-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 0;
+  }
+  .hero h2 {
+    font-size: 44px;
+  }
+  .hero-search {
+    flex-direction: column;
+    align-items: center; /* 全部置中 */
+    gap: 4px;
+    max-width: 420px; /* 白色框再變窄 */
+  }
+  .hero-search-input {
+    flex: none; /* 不撐滿 */
+    width: auto; /* 下拉選單/日期改成內容寬，較窄 */
+    text-align: center;
+  }
+  .hero-search .btn {
+    margin-top: 6px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .stat-value {
+    font-size: 26px;
+  }
+}
