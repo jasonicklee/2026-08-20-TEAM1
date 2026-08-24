@@ -299,7 +299,7 @@
     </div>
   </footer>
 
-  <!-- 1. 引入共通商品資料檔 -->
+  <!--共通商品資料檔 -->
   <script src="products-data.js"></script>
 
   <script>
@@ -307,7 +307,7 @@
     let currentUnitPrice = 0;
     let currentTicketCount = 1;
 
-    // 2. 從 URL 網址參數 (e.g. product-detail.html?id=3) 取得當前商品 ID
+    // 從 URL 網址參數 (e.g. products-detaisl.html?id=3) 取得當前商品 ID
     function getProductFromUrl() {
       const params = new URLSearchParams(window.location.search);
       const productId = parseInt(params.get('id'), 10) || 1; // 預設為 id: 1
@@ -315,12 +315,12 @@
       return products.find(p => p.id === productId) || products[0];
     }
 
-    // 3. 動態渲染頁面所有資訊
+    // 動態渲染頁面所有資訊
     function renderProductDetail() {
       currentProduct = getProductFromUrl();
       currentUnitPrice = currentProduct.price;
 
-      // A. 動態修改網頁 <title> 與 麵包屑/標題
+      // 動態修改網頁 <title> 與 麵包屑/標題
       document.title = `${currentProduct.name} - 島嶼旅跡`;
 
       const breadcrumbEl = document.getElementById('breadcrumb-title');
@@ -329,7 +329,7 @@
       if (titleEl) titleEl.innerText = currentProduct.name;
 
 
-      // B. 中段地點/時間/類別/評分資訊
+      // 地點/時間/類別/評分資訊
       const infoEl = document.getElementById('detail-info');
       if (infoEl) {
         infoEl.innerHTML = `
@@ -345,13 +345,13 @@
         `;
       }
 
-      // C. 體驗介紹 (統一內文，動態替換地點)
+      // 體驗介紹 (地點用location)
       const descEl = document.getElementById('detail-desc');
       if (descEl) {
         descEl.innerText = `這是一場深入${currentProduct.location}在地生活的體驗活動。由當地資深帶路人帶領，您將打破一般觀光行程的框架，真正感受這片土地的溫暖與風味。無論您是第一次探索台灣，或是想逃離都市喧囂的人，這場體驗都將帶您看見不一樣的風景。`;
       }
 
-      // D. 行程亮點 (統一內容，動態替換地點)
+      // 行程亮點 (地點用location)
       const highlightEl = document.getElementById('detail-highlights');
       if (highlightEl) {
         highlightEl.innerHTML = `
@@ -363,7 +363,7 @@
         `;
       }
 
-      // E. 右側浮動預訂 Box 資訊
+      // 右側浮動預訂 Box 資訊
       const boxPriceEl = document.getElementById('box-price');
       const boxStarEl = document.getElementById('box-star');
       const boxRatingEl = document.getElementById('box-rating');
@@ -371,7 +371,7 @@
       const totalPriceValEl = document.getElementById('total-price-val');
 
       if (boxPriceEl) boxPriceEl.innerText = `NT$ ${currentProduct.price.toLocaleString()}`;
-      if (boxStarEl) boxStarEl.innerText = `${getStarIcons(currentProduct.rating)}`;
+      if (boxStarEl) boxStarEl.innerText = getStarIcons(currentProduct.rating);
       if (boxRatingEl) boxRatingEl.innerText = currentProduct.rating;
       if (boxReviewsEl) boxReviewsEl.innerText = `(${currentProduct.reviews})`;
       if (totalPriceValEl) totalPriceValEl.innerText = currentProduct.price.toLocaleString();
@@ -380,7 +380,7 @@
       initGallery(currentProduct);
     }
 
-    // 4. 初始化相片畫廊 (使用商品內建的 imageId 生成圖片)
+    // 四縮圖
     function initGallery(product) {
       const mainImgWrapper = document.getElementById('main-display-img-wrapper');
       const thumbContainer = document.getElementById('thumbnails-container');

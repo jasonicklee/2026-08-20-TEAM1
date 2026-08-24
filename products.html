@@ -203,11 +203,11 @@
   </footer>
 
 
-  <!-- products -->
+  <!--共通商品資料檔 -->
   <script src="products-data.js"></script>
 
   <script>
-    // 1. 篩選與排序條件選項設定
+    //篩選與排序條件選項設定
     const locationList = ['台北', '新北', '台中', '台南', '高雄', '宜蘭', '花蓮', '嘉義', '屏東', '彰化'];
     const categories = [
       { name: '戶外冒險', icon: '🏕️' },
@@ -224,7 +224,7 @@
       { value: 'reviews-most', label: '最多評論' }
     ];
 
-    // 3. 渲染商品卡片（使用可點擊連結，並防範愛心按鈕事件冒泡）
+    // 渲染商品卡片（使用可點擊連結，並防範愛心按鈕事件冒泡）
     function renderProducts(list) {
       const productGridEl = document.getElementById('product-grid');
       document.getElementById('product-count').textContent = list.length;
@@ -266,7 +266,7 @@
       ).join('');
     }
 
-    // 4. 初始化側邊欄標籤 UI
+    // 初始化側邊欄標籤 
     function initFilterUI() {
       document.getElementById('location-tags').innerHTML = locationList.map(loc =>
         `<button type="button" class="tag" data-type="location" data-value="${loc}">${loc}</button>`
@@ -286,7 +286,7 @@
       ).join('');
     }
 
-    // 5. 排序處理邏輯
+    // 排序處理
     function sortProducts(list, sortType) {
       const sortedList = [...list];
       switch (sortType) {
@@ -299,7 +299,7 @@
       }
     }
 
-    // 6. 整合篩選與排序執行函式 (保留一份即可)
+    // 篩選與排序執行函式
     function executeFilter() {
       const activeTags = Array.from(document.querySelectorAll('.tag.active'));
       const currentSort = document.querySelector('.sort-select').value;
@@ -323,7 +323,7 @@
       renderProducts(finalProducts);
     }
 
-    // 7. 事件監聽設定
+    // 事件監聽設定
     document.addEventListener('DOMContentLoaded', () => {
       initFilterUI();
       renderProducts(products);
@@ -344,13 +344,14 @@
         if (resetBtn) {
           document.querySelectorAll('.tag.active').forEach(tag => tag.classList.remove('active'));
           executeFilter();
+          return;
         }
       });
 
       const sortSelectEl = document.querySelector('.sort-select');
       sortSelectEl.addEventListener('change', executeFilter);
 
-      // Header 滾動樣式
+      // Nav 滾動變色效果
       const headerEl = document.getElementById('main-header');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 40) {
