@@ -1,0 +1,151 @@
+.profile-layout {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 28px;
+  padding: 28px 64px;
+}
+
+@media (max-width: 767px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  border: 1px solid #666;
+  box-shadow: 10px 10px -6px #666;
+  border-radius: 16px;
+}
+
+.profile img {
+  border-radius: 50%;
+}
+
+.profile-btn {
+  display: grid;
+  gap: 8px;
+}
+
+.tab-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.tab-btn {
+  padding: 12px 16px;
+  border: 0;
+  background-color: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tab-btn:hover {
+  background-color: var(--primary-lightorange);
+  color: darkblue;
+  border-radius: 8px;
+}
+
+.tab-btn.active {
+  background-color: var(--primary-lightorange);
+  color: var(--primary-orange);
+  border-radius: 8px;
+}
+
+.experience {
+  display: flex;
+}
+
+.experience-title {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.experience-location {
+  color: var(--primary-grey);
+}
+
+.btn-order {
+  background-color: transparent;
+  border: 1px solid var(--primary-red);
+  color: var(--primary-red);
+  cursor: pointer;
+}
+
+.btn-order:hover {
+  background-color: var(--primary-red);
+  color: var(--primary-white);
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-table th {
+  text-align: left;
+  padding: 16px 20px;
+  border-bottom: 2px solid #eee;
+  color: #666;
+}
+
+.order-table td {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.collect-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 24px;
+  padding: 40px;
+  border: 1px solid var(--primary-grey);
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-item input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.preference {
+  grid-column: 1 / -1;
+}
+
+.save-button {
+  grid-column: 1 / -1;
+}
