@@ -43,7 +43,7 @@
     <section class="product-content">
       <!-- 麵包屑導覽 -->
       <nav class="breadcrumb" aria-label="breadcrumb">
-        <a href="main.html">首頁</a>
+        <a href="index.html">首頁</a>
         <span class="separator">›</span>
         <span class="current">探索體驗</span>
       </nav>
@@ -73,10 +73,10 @@
     //篩選與排序條件選項設定
     const locationList = ['台北', '新北', '台中', '台南', '高雄', '宜蘭', '花蓮', '嘉義', '屏東', '彰化'];
     const categories = [
-      { name: '戶外冒險', icon: '🏕️' },
-      { name: '手作工藝', icon: '🎨' },
-      { name: '美食料理', icon: '🍳' },
-      { name: '文化歷史', icon: '🏛️' }
+      { name: '戶外冒險', icon: '🏕️', },
+      { name: '手作工藝', icon: '🎨', },
+      { name: '美食料理', icon: '🍳', },
+      { name: '文化歷史', icon: '🏛️', },
     ];
     const durations = ['2小時', '3小時', '4小時', '半天', '全天'];
     const sortOptions = [
@@ -149,6 +149,19 @@
       ).join('');
     }
 
+    // 篩選後網址(方便跳轉)
+    function applyUrlParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoryParam = urlParams.get('category');
+
+      if (categoryParam) {
+        const matchedCat = categories.find(c => c.cat === categoryParam || c.name === categoryParam);
+        const targetValue = matchedCat ? matchedCat.name : categoryParam;
+        const targetTag = document.querySelector(`.tag[data-type="category"][data-value="${targetValue}"]`);
+        if (targetTag) targetTag.classList.add('active');
+      }
+    }
+
     // 排序處理
     function sortProducts(list, sortType) {
       const sortedList = [...list];
@@ -189,7 +202,8 @@
     // 事件監聽設定
     document.addEventListener('DOMContentLoaded', () => {
       initFilterUI();
-      renderProducts(products);
+      applyUrlParams();
+      executeFilter();
 
       const filterSidebar = document.querySelector('.filter-sidebar');
       filterSidebar.addEventListener('click', (e) => {

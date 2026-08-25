@@ -36,7 +36,7 @@
             <option>嘉義</option>
           </select>
           <input class="hero-search-input" type="date" value="2026-08-21" aria-label="選擇日期" />
-          <button type="button" class="btn btn-orange">搜尋體驗</button>
+          <button type="button" class="btn btn-orange" onclick="location.href='products.html'">搜尋體驗</button>
         </div>
       </div>
     </section>
@@ -71,28 +71,28 @@
         <p class="eyebrow">EXPLORE BY THEME</p>
         <h2>找到你的體驗類型</h2>
         <div class="theme-list">
-          <a class="theme-card" href="#">
+          <a class="theme-card" href="products.html?category=戶外冒險">
             <span class="theme-icon">🏔️</span><span class="theme-name">戶外冒險</span>
           </a>
-          <a class="theme-card" href="#">
+          <a class="theme-card" href="products.html?category=手作工藝">
             <span class="theme-icon">🎨</span><span class="theme-name">手作工藝</span>
           </a>
-          <a class="theme-card" href="#">
+          <a class="theme-card" href="products.html?category=美食料理">
             <span class="theme-icon">🍜</span><span class="theme-name">美食料理</span>
           </a>
-          <a class="theme-card" href="#">
+          <a class="theme-card" href="products.html?category=文化歷史">
             <span class="theme-icon">🏛️</span><span class="theme-name">文化歷史</span>
           </a>
-          <a class="theme-card" href="#">
+          <a class="theme-card" href="products.html">
             <span class="theme-icon">🛶</span><span class="theme-name">水上活動</span>
           </a>
-          <a class="theme-card" href="#">
+          <a class="theme-card" href="products.html">
             <span class="theme-icon">🌾</span><span class="theme-name">農村生活</span>
           </a>
-          <a class="theme-card" href="#">
+          <a class="theme-card" href="products.html">
             <span class="theme-icon">🎭</span><span class="theme-name">傳統藝術</span>
           </a>
-          <a class="theme-card" href="#">
+          <a class="theme-card" href="products.html">
             <span class="theme-icon">📷</span><span class="theme-name">攝影旅拍</span>
           </a>
         </div>
@@ -108,136 +108,145 @@
             <p class="eyebrow">HOT THIS WEEK</p>
             <h2>本週熱門體驗</h2>
           </div>
-          <a href="#" class="btn btn-outline">查看全部 →</a>
+          <a href="products.html" class="btn btn-outline">查看全部 →</a>
         </div>
         <div class="exp-list" id="hotGrid">
-          <article class="exp-card">
-            <div class="exp-card-media">
-              <img src="https://picsum.photos/seed/exp1/400/300" alt="清水斷崖獨木舟探險" />
-              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-            </div>
-            <div class="exp-card-body">
-              <span class="tag">戶外冒險</span>
-              <h3 class="exp-card-title">清水斷崖獨木舟探險</h3>
-              <p class="exp-card-meta">📍 花蓮 · 半天</p>
-              <div class="exp-card-foot">
-                <p class="exp-card-price">NT$ 1,800 <span>/人 起</span></p>
-                <p class="exp-card-rating">★★★★★ <span>(312)</span></p>
+          <a href="products-details.html?id=1">
+            <article class="exp-card">
+              <div class="exp-card-media">
+                <img src="https://picsum.photos/seed/exp1/400/300" alt="清水斷崖獨木舟探險" />
+                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
               </div>
-            </div>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-card-media">
-              <img src="https://picsum.photos/seed/exp2/400/300" alt="九份老街手捏陶藝體驗" />
-              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-            </div>
-            <div class="exp-card-body">
-              <span class="tag">手作工藝</span>
-              <h3 class="exp-card-title">九份老街手捏陶藝體驗</h3>
-              <p class="exp-card-meta">📍 新北 · 3 小時</p>
-              <div class="exp-card-foot">
-                <p class="exp-card-price">NT$ 980 <span>/人 起</span></p>
-                <p class="exp-card-rating">★★★★★ <span>(205)</span></p>
+              <div class="exp-card-body">
+                <span class="tag">戶外冒險</span>
+                <h3 class="exp-card-title">清水斷崖獨木舟探險</h3>
+                <p class="exp-card-meta">📍 花蓮 · 半天</p>
+                <div class="exp-card-foot">
+                  <p class="exp-card-price">NT$ 1,800 <span>/人 起</span></p>
+                  <p class="exp-card-rating">★★★★★ <span>(312)</span></p>
+                </div>
               </div>
-            </div>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-card-media">
-              <img src="https://picsum.photos/seed/exp3/400/300" alt="台中市場私廚料理課" />
-              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-            </div>
-            <div class="exp-card-body">
-              <span class="tag">美食料理</span>
-              <h3 class="exp-card-title">台中市場私廚料理課</h3>
-              <p class="exp-card-meta">📍 台中 · 4 小時</p>
-              <div class="exp-card-foot">
-                <p class="exp-card-price">NT$ 1,500 <span>/人 起</span></p>
-                <p class="exp-card-rating">★★★★★ <span>(189)</span></p>
+            </article>
+          </a>
+          <a href="products-details.html?id=2">
+            <article class="exp-card">
+              <div class="exp-card-media">
+                <img src="https://picsum.photos/seed/exp2/400/300" alt="九份老街手捏陶藝體驗" />
+                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
               </div>
-            </div>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-card-media">
-              <img src="https://picsum.photos/seed/exp4/400/300" alt="阿里山日出觀星嚮導" />
-              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-            </div>
-            <div class="exp-card-body">
-              <span class="tag">自然探索</span>
-              <h3 class="exp-card-title">阿里山日出觀星嚮導</h3>
-              <p class="exp-card-meta">📍 嘉義 · 全天</p>
-              <div class="exp-card-foot">
-                <p class="exp-card-price">NT$ 2,200 <span>/人 起</span></p>
-                <p class="exp-card-rating">★★★★★ <span>(98)</span></p>
+              <div class="exp-card-body">
+                <span class="tag">手作工藝</span>
+                <h3 class="exp-card-title">九份老街手捏陶藝體驗</h3>
+                <p class="exp-card-meta">📍 新北 · 3 小時</p>
+                <div class="exp-card-foot">
+                  <p class="exp-card-price">NT$ 980 <span>/人 起</span></p>
+                  <p class="exp-card-rating">★★★★★ <span>(205)</span></p>
+                </div>
               </div>
-            </div>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-card-media">
-              <img src="https://picsum.photos/seed/exp5/400/300" alt="淡水老街藍染拼布工作坊" />
-              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-            </div>
-            <div class="exp-card-body">
-              <span class="tag">手作工藝</span>
-              <h3 class="exp-card-title">淡水老街藍染拼布工作坊</h3>
-              <p class="exp-card-meta">📍 新北 · 3 小時</p>
-              <div class="exp-card-foot">
-                <p class="exp-card-price">NT$ 1,200 <span>/人 起</span></p>
-                <p class="exp-card-rating">★★★★☆ <span>(147)</span></p>
+            </article>
+          </a>
+          <a href="products-details.html?id=3">
+            <article class="exp-card">
+              <div class="exp-card-media">
+                <img src="https://picsum.photos/seed/exp3/400/300" alt="台中市場私廚料理課" />
+                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
               </div>
-            </div>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-card-media">
-              <img src="https://picsum.photos/seed/exp6/400/300" alt="台南府城古蹟深度導覽" />
-              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-            </div>
-            <div class="exp-card-body">
-              <span class="tag">文化歷史</span>
-              <h3 class="exp-card-title">台南府城古蹟深度導覽</h3>
-              <p class="exp-card-meta">📍 台南 · 半天</p>
-              <div class="exp-card-foot">
-                <p class="exp-card-price">NT$ 800 <span>/人 起</span></p>
-                <p class="exp-card-rating">★★★★★ <span>(261)</span></p>
+              <div class="exp-card-body">
+                <span class="tag">美食料理</span>
+                <h3 class="exp-card-title">台中市場私廚料理課</h3>
+                <p class="exp-card-meta">📍 台中 · 4 小時</p>
+                <div class="exp-card-foot">
+                  <p class="exp-card-price">NT$ 1,500 <span>/人 起</span></p>
+                  <p class="exp-card-rating">★★★★★ <span>(189)</span></p>
+                </div>
               </div>
-            </div>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-card-media">
-              <img src="https://picsum.photos/seed/exp7/400/300" alt="宜蘭稻田生態農遊體驗" />
-              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-            </div>
-            <div class="exp-card-body">
-              <span class="tag">自然探索</span>
-              <h3 class="exp-card-title">宜蘭稻田生態農遊體驗</h3>
-              <p class="exp-card-meta">📍 宜蘭 · 半天</p>
-              <div class="exp-card-foot">
-                <p class="exp-card-price">NT$ 1,100 <span>/人 起</span></p>
-                <p class="exp-card-rating">★★★★★ <span>(173)</span></p>
+            </article>
+          </a>
+          <a href="products-details.html?id=4">
+            <article class="exp-card">
+              <div class="exp-card-media">
+                <img src="https://picsum.photos/seed/exp4/400/300" alt="阿里山日出觀星嚮導" />
+                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
               </div>
-            </div>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-card-media">
-              <img src="https://picsum.photos/seed/exp8/400/300" alt="高雄旗津老漁村料理日" />
-              <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
-            </div>
-            <div class="exp-card-body">
-              <span class="tag">美食料理</span>
-              <h3 class="exp-card-title">高雄旗津老漁村料理日</h3>
-              <p class="exp-card-meta">📍 高雄 · 4 小時</p>
-              <div class="exp-card-foot">
-                <p class="exp-card-price">NT$ 1,350 <span>/人 起</span></p>
-                <p class="exp-card-rating">★★★★★ <span>(142)</span></p>
+              <div class="exp-card-body">
+                <span class="tag">自然探索</span>
+                <h3 class="exp-card-title">阿里山日出觀星嚮導</h3>
+                <p class="exp-card-meta">📍 嘉義 · 全天</p>
+                <div class="exp-card-foot">
+                  <p class="exp-card-price">NT$ 2,200 <span>/人 起</span></p>
+                  <p class="exp-card-rating">★★★★★ <span>(98)</span></p>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </a>
+          <a href="products-details.html?id=5">
+            <article class="exp-card">
+              <div class="exp-card-media">
+                <img src="https://picsum.photos/seed/exp5/400/300" alt="淡水老街藍染拼布工作坊" />
+                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+              </div>
+              <div class="exp-card-body">
+                <span class="tag">手作工藝</span>
+                <h3 class="exp-card-title">淡水老街藍染拼布工作坊</h3>
+                <p class="exp-card-meta">📍 新北 · 3 小時</p>
+                <div class="exp-card-foot">
+                  <p class="exp-card-price">NT$ 1,200 <span>/人 起</span></p>
+                  <p class="exp-card-rating">★★★★☆ <span>(147)</span></p>
+                </div>
+              </div>
+            </article>
+          </a>
+          <a href="products-details.html?id=6">
+            <article class="exp-card">
+              <div class="exp-card-media">
+                <img src="https://picsum.photos/seed/exp6/400/300" alt="台南府城古蹟深度導覽" />
+                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+              </div>
+              <div class="exp-card-body">
+                <span class="tag">文化歷史</span>
+                <h3 class="exp-card-title">台南府城古蹟深度導覽</h3>
+                <p class="exp-card-meta">📍 台南 · 半天</p>
+                <div class="exp-card-foot">
+                  <p class="exp-card-price">NT$ 800 <span>/人 起</span></p>
+                  <p class="exp-card-rating">★★★★★ <span>(261)</span></p>
+                </div>
+              </div>
+            </article>
+          </a>
+          <a href="products-details.html?id=7">
+            <article class="exp-card">
+              <div class="exp-card-media">
+                <img src="https://picsum.photos/seed/exp7/400/300" alt="宜蘭稻田生態農遊體驗" />
+                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+              </div>
+              <div class="exp-card-body">
+                <span class="tag">自然探索</span>
+                <h3 class="exp-card-title">宜蘭稻田生態農遊體驗</h3>
+                <p class="exp-card-meta">📍 宜蘭 · 半天</p>
+                <div class="exp-card-foot">
+                  <p class="exp-card-price">NT$ 1,100 <span>/人 起</span></p>
+                  <p class="exp-card-rating">★★★★★ <span>(173)</span></p>
+                </div>
+              </div>
+            </article>
+          </a>
+          <a href="products-details.html?id=8">
+            <article class="exp-card">
+              <div class="exp-card-media">
+                <img src="https://picsum.photos/seed/exp8/400/300" alt="高雄旗津老漁村料理日" />
+                <button class="exp-card-fav" type="button" aria-label="加入收藏">♡</button>
+              </div>
+              <div class="exp-card-body">
+                <span class="tag">美食料理</span>
+                <h3 class="exp-card-title">高雄旗津老漁村料理日</h3>
+                <p class="exp-card-meta">📍 高雄 · 4 小時</p>
+                <div class="exp-card-foot">
+                  <p class="exp-card-price">NT$ 1,350 <span>/人 起</span></p>
+                  <p class="exp-card-rating">★★★★★ <span>(142)</span></p>
+                </div>
+              </div>
+            </article>
+          </a>
         </div>
       </div>
     </section>
@@ -253,7 +262,7 @@
         </div>
         <div class="guide-cta-actions">
           <a href="#" class="btn btn-orange">立即申請嚮導</a>
-          <a href="#" class="btn btn-ghost">了解更多</a>
+          <a href="about.html" class="btn btn-ghost">了解更多</a>
         </div>
       </div>
     </section>

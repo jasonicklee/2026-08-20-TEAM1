@@ -5,10 +5,10 @@ const siteConfig = {
     url: "index.html"
   },
   mainNav: [
-    { name: "探索體驗", url: "explore.html" },
+    { name: "探索體驗", url: "products.html" },
     { name: "關於我們", url: "about.html" },
     { name: "常見問題", url: "faq.html" },
-    { name: "我的訂單", url: "orders.html" }
+    { name: "我的訂單", url: "profile.html" }
   ],
   authBtn: {
     name: "登入/註冊",
@@ -18,11 +18,11 @@ const siteConfig = {
     {
       title: "探索",
       links: [
-        { name: "所有體驗", url: "explore.html" },
-        { name: "戶外冒險", url: "explore.html?cat=outdoor" },
-        { name: "手作工藝", url: "explore.html?cat=craft" },
-        { name: "美食料理", url: "explore.html?cat=food" },
-        { name: "文化歷史", url: "explore.html?cat=culture" }
+        { name: "所有體驗", url: "products.html" },
+        { name: "戶外冒險", url: "products.html?category=戶外冒險" },
+        { name: "手作工藝", url: "products.html?category=手作工藝" },
+        { name: "美食料理", url: "products.html?category=美食料理" },
+        { name: "文化歷史", url: "products.html?category=文化歷史" }
       ]
     },
     {
@@ -30,17 +30,17 @@ const siteConfig = {
       links: [
         { name: "關於我們", url: "about.html" },
         { name: "常見問題", url: "faq.html" },
-        { name: "旅遊嚮導招募", url: "recruit.html" },
-        { name: "媒體合作", url: "press.html" }
+        { name: "旅遊嚮導招募", url: " " },
+        { name: "媒體合作", url: " " }
       ]
     },
     {
       title: "支援",
       links: [
-        { name: "退款政策", url: "refund.html" },
-        { name: "隱私政策", url: "privacy.html" },
-        { name: "服務條款", url: "terms.html" },
-        { name: "查看訂單", url: "orders.html" }
+        { name: "退款政策", url: "faq.html" },
+        { name: "隱私政策", url: " " },
+        { name: "服務條款", url: " " },
+        { name: "查看訂單", url: " " }
       ]
     }
   ]
