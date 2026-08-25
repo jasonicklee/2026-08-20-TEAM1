@@ -232,6 +232,7 @@ footer {
 
 .btn-orange {
   background-color: orangered;
+  /* 修正btn文字顏色 */
   color: white;
 }
 
