@@ -11,31 +11,11 @@
   <link rel="stylesheet" href="./css/pages/faq.css">
 </head>
 
+
+
 <body>
-
-  <!-- =========================
-       Header
-  ========================== -->
-  <header class="site-header">
-    <div class="container d-flex justify-between align-center py-16">
-
-      <a href="index.html" class="logo">
-        島嶼旅跡<span class="text-orange">・</span>
-      </a>
-
-      <nav class="site-nav">
-        <a href="#">探索體驗</a>
-        <a href="about.html">關於我們</a>
-        <a href="faq.html">常見問題</a>
-        <a href="#">我的訂單</a>
-
-        <a href="login.html" class="btn btn-orange">
-          登入 / 註冊
-        </a>
-      </nav>
-
-    </div>
-  </header>
+  <!-- Header 掛載點 -->
+  <header id="main-header"></header>
 
 
   <!-- =========================
@@ -244,96 +224,11 @@
   <!-- =========================
        Footer
   ========================== -->
-  <footer>
+  <!-- Footer 掛載點 -->
+  <footer id="footer-container"></footer>
 
-    <div class="container py-48 text-white">
-
-
-      <div class="faq-footer">
-
-
-        <!-- 品牌 -->
-        <div class="faq-footer__brand">
-
-          <h3>
-            島嶼旅跡
-            <span class="text-orange">・</span>
-          </h3>
-
-          <p>
-            深入台灣每一條小徑，<br>
-            遇見最在地的感動體驗。<br>
-            我們相信，旅行不只是到達目的地，<br>
-            而是與這片土地真實相遇。
-          </p>
-
-        </div>
-
-
-        <!-- 探索 -->
-        <div class="faq-footer__column">
-
-          <h4>探索</h4>
-
-          <a href="#">所有體驗</a>
-          <a href="#">戶外冒險</a>
-          <a href="#">手作工藝</a>
-          <a href="#">美食料理</a>
-          <a href="#">文化歷史</a>
-
-        </div>
-
-
-        <!-- 公司 -->
-        <div class="faq-footer__column">
-
-          <h4>公司</h4>
-
-          <a href="about.html">關於我們</a>
-          <a href="faq.html">常見問題</a>
-          <a href="#">旅遊嚮導招募</a>
-          <a href="#">媒體合作</a>
-
-        </div>
-
-
-        <!-- 支援 -->
-        <div class="faq-footer__column">
-
-          <h4>支援</h4>
-
-          <a href="#">退款政策</a>
-          <a href="#">隱私政策</a>
-          <a href="#">服務條款</a>
-          <a href="#">查看訂單</a>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- footer bottom -->
-      <div class="faq-footer__bottom">
-
-        <span>
-          © 2026 島嶼旅跡 IslandTrace.
-          All rights reserved.
-        </span>
-
-        <span>
-          用心丈量台灣每一寸土地
-        </span>
-
-      </div>
-
-
-    </div>
-
-  </footer>
-
-
-
+  <!-- 引入 Nav 設定檔腳本 -->
+  <script src="./js/nav-config.js"></script>
   <script>
     const faqItems = document.querySelectorAll(".faq-item");
 
